@@ -18,3 +18,5 @@ obj
 *.mp4
 *.avi
 *.gif
+*.log
+__pycache__

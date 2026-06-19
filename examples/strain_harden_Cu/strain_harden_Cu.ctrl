@@ -1,0 +1,71 @@
+#
+#  FCC copper bulk network under constant strain-rate loading.
+#
+#  Dislocation density evolution under uniaxial tension along [001] demonstrates
+#  strain hardening.  Material parameters and mobility follow tests/Copper.ctrl.
+#
+#  Run from the ParaDiS repository root:
+#    mpirun -n 8 ./bin/paradis -d tests/Copper.data \
+#                           examples/strain_harden_Cu/strain_harden_Cu.ctrl
+#
+dirname = "examples/strain_harden_Cu/strain_harden_Cu_results"
+
+numXdoms = 2
+numYdoms = 2
+numZdoms = 2
+
+numXcells = 4
+numYcells = 4
+numZcells = 4
+
+decompType = 2
+DLBfreq = 3
+
+maxSeg = 4.000000e+02
+remeshRule = 2
+enforceGlidePlanes = 1
+enableCrossSlip = 1
+splitMultiNodeFreq = 1
+
+maxstep = 500
+timestepIntegrator = "trapezoid"
+nextDT = 1.0e-12
+rTol = 10.0
+
+fmEnabled = 1
+fmMPOrder = 2
+fmTaylorOrder = 5
+fmCorrectionTbl = "inputs/fm-ctab.Cu.m2.t5.dat"
+
+loadType = 1
+eRate = 1.0e03
+indxErate = 2
+edotdir = [
+  0.0
+  0.0
+  1.0
+  ]
+
+mobilityLaw = "FCC_0"
+shearModulus = 54.6e9
+pois = 0.324
+burgMag = 2.55600e-10
+
+MobScrew = 1.000000e+04
+MobEdge = 1.000000e+04
+rc = 5.0
+
+elasticinteraction = 1
+
+savetimers = 0
+savecn = 1
+savecnfreq = 100
+savecncounter = 0
+gnuplot = 1
+gnuplotfreq = 50
+gnuplotcounter = 0
+povray = 1
+povrayfreq = 50
+povraycounter = 0
+saveprop = 1
+savepropfreq = 10

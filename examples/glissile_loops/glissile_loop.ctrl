@@ -1,0 +1,70 @@
+#
+#  Closed BCC glissile loop on the (001) plane under applied shear stress.
+#
+#  Geometry is rotated from tests/shearloopBCC_LinCS (proven expanding loop).
+#  Mobility and stress match that test; loop plane normal is (001).
+#
+#  Run from the ParaDiS repository root:
+#    python examples/glissile_loops/make_loop_data.py
+#    mpirun -n 8 ./bin/paradis -d examples/glissile_loops/glissile_loop.data \
+#                           examples/glissile_loops/glissile_loop.ctrl
+#
+dirname = "examples/glissile_loops/glissile_loop_results"
+
+numXdoms = 2
+numYdoms = 2
+numZdoms = 2
+
+numXcells = 4
+numYcells = 4
+numZcells = 4
+
+fmEnabled = 0
+
+maxstep = 1000
+remeshRule = 2
+minSeg = 10.000000
+maxSeg = 200.000000
+rTol = 1.000000e+00
+timestepIntegrator = "trapezoid"
+maxDT = 1.000000e-05
+
+enforceGlidePlanes = 1
+enableCrossSlip = 0
+
+rc = 2.000000
+MobScrew = 1.000000e+00
+MobEdge = 1.000000e+02
+MobClimb = 1.000000e-02
+mobilityLaw = "BCC_Linear"
+
+elasticinteraction = 1
+
+loadType = 0
+edotdir = [
+  0.0
+  0.0
+  1.0
+  ]
+#  Voigt (xx, yy, zz, yz, zx, xy): rotated from shearloopBCC_LinCS.ctrl.
+appliedStress = [
+  0.000000e+00
+  0.000000e+00
+  0.000000e+00
+  6.522095e+07
+  1.119015e+07
+  0.000000e+00
+  ]
+
+savetimers = 0
+savecn = 1
+savecnfreq = 50
+savecncounter = 0
+gnuplot = 1
+gnuplotfreq = 50
+gnuplotcounter = 0
+povray = 1
+povrayfreq = 50
+povraycounter = 0
+saveprop = 1
+savepropfreq = 10

@@ -1,0 +1,85 @@
+#
+#  FCC aluminum bulk network under constant strain-rate loading.
+#
+#  Dislocation density evolution under uniaxial tension along [100] demonstrates
+#  strain hardening.  Material parameters and mobility follow tests/Al.ctrl.
+#
+#  Run from the ParaDiS repository root:
+#    mpirun -n 8 ./bin/paradis -d tests/Al.data \
+#                           examples/strain_harden_Al/strain_harden_Al.ctrl
+#
+dirname = "examples/strain_harden_Al/strain_harden_Al_results"
+
+numXdoms = 2
+numYdoms = 2
+numZdoms = 2
+
+numXcells = 4
+numYcells = 4
+numZcells = 4
+
+decompType = 2
+DLBfreq = 3
+
+maxSeg = 200
+minSeg = 50
+remeshRule = 2
+enforceGlidePlanes = 0
+enableCrossSlip = 1
+splitMultiNodeFreq = 5
+
+maxstep = 500
+timestepIntegrator = "trapezoid"
+nextDT = 1.0e-12
+rTol = 3.0
+
+fmEnabled = 1
+fmMPOrder = 2
+fmTaylorOrder = 5
+fmCorrectionTbl = "tests/Al.fmm"
+
+Rijmfile = "inputs/Rijm.cube.out"
+RijmPBCfile = "inputs/RijmPBC.cube.out"
+
+loadType = 1
+eRate = 1.0e4
+indxErate = 0
+edotdir = [
+  1.0
+  0.0
+  0.0
+  ]
+appliedStress = [
+  0.0
+  0.0
+  0.0
+  0.0
+  0.0
+  0.0
+  ]
+
+mobilityLaw = "FCC_linear"
+shearModulus = 27e+9
+pois = 0.347
+YoungModulus = 72.7e+9
+burgMag = 2.86e-10
+
+MobEdge = 5e4
+MobScrew = 5e4
+MobClimb = 1.0
+rc = 5.0
+
+elasticinteraction = 1
+
+savetimers = 0
+savecn = 1
+savecnfreq = 100
+savecncounter = 0
+gnuplot = 1
+gnuplotfreq = 50
+gnuplotcounter = 0
+povray = 1
+povrayfreq = 50
+povraycounter = 0
+saveprop = 1
+savepropfreq = 10

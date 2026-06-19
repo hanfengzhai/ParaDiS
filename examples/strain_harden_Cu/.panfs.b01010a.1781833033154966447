@@ -1,0 +1,579 @@
+***********************************************************
+**** 
+**** Time of run:     Thu Jun 18 18:37:14 2026
+**** Executable name: paradis
+**** Executable path: ./bin
+**** Working dir:     /home/cai/hzhai/codes/ParaDiS.llnl.git
+**** Execution host:  mc3-login-1-1 (Linux 4.18.0-477.10.1.el8_8.x86_64 x86_64)
+**** User name:       hzhai
+**** Number of tasks: 8
+**** Command line:    -d tests/Copper.data examples/strain_harden_Cu/strain_harden_Cu.ctrl 
+**** 
+**** Build options enabled...
+****    -DNO_XWINDOW         : X-Windows disabled
+****    -DFIX_PLASTIC_STRAIN : Plastic strain fix enabled
+****    -DTAYLORFMM          : Taylor expansion FMM enabled
+***********************************************************
+Initialize: Parsing control file examples/strain_harden_Cu/strain_harden_Cu.ctrl
+Initialize: Control file parsing complete
+Generating uniform domain decomposition.
+WARNING: Separation distance is larger than the core radius!
+         rann = 20.000000, rc = 5.000000
+chdir successful on all tasks.
++----------------------------------------------------------------------------------------
+| ParaDiS Simulation and control initialization summary
+|
+| MPI and Cell configuration controls
+|
+|   MPI ranks (total)            : 8
+|   MPI geometry                 : 2 x 2 x 2 (xyz)
+|   cell geometry                : 4 x 4 x 4 (xyz)
+|
+| Simulation box and periodic boundary conditions
+|   simulation node count        : 2304
+|   simulation box (x)           : [ -10000,+10000 ] (20000b, 5.1um)
+|   simulation box (y)           : [ -10000,+10000 ] (20000b, 5.1um)
+|   simulation box (z)           : [ -10000,+10000 ] (20000b, 5.1um)
+|   burgmag                      : 2.5560e-10
+|
+|   periodic boundary (x)        : periodic
+|   periodic boundary (y)        : periodic
+|   periodic boundary (z)        : periodic
+|
+|   decompType                   : 2
+|   dlb_freq                     : 3
+|   dlb_cycles                   : 0
+|
+| Integration and timestep controls
+|   integrator                   : trapezoid
+|   trapezoid max integrations   : 2
+|
+|   start cycle                  : 0
+|   last  cycle                  : 500
+|
+|   timeNow                      : 0.000000e+00
+|   timeStart                    : 0.000000e+00
+|   timeEnd                      : -1.000000e+00
+|
+|   deltaTT                      : 1.00e-12
+|   maxDT                        : 1.00e-07
+|   dtIncrementFact              : 1.2
+|   dtDecrementFact              : 0.5
+|   dtExponent                   : 4.0
+|
+|   minseg                       : 135.9
+|   maxseg                       : 400.0
+|   rtol                         : 10.0
+|   rmax                         : 100.0
+|   rc                           : 5.0000
+|   rann                         : 20.0
+|   remesh area (min)            : 8000.0
+|   remesh area (max)            : 50641.0
+|   split multinode freq         : 1
+|   split multinode alpha        : 0.001
+|
+| FMM control parameters
+|   FMM enabled                  : yes
+|   FMM layers                   : 3
+|   FMM mp order                 : 2
+|   FMM expansion                : 5
+|   FMM npoints                  : 3
+|
+| Mobility
+|   mobility law                 : FCC_0
+|   material type                : FCC
+|
+|   mobility (screw)             : 1.0e+04
+|   mobility (edge )             : 1.0e+04
+|   mobility (climb)             : 1.0e-02
+|   mobility (glide)             : 1.0e+02
+|   mobility (line )             : 1.0e+04
+|
+|   mobility climb junc          : 1.0e+00
+|   mobility split               : 0
+|   mobility climb split         : -1.0e+00
+|
+|   shear velocity               : 3400.0
+|
+|   enforce glide planes         : yes
+|   enable  cross slip           : yes
+|
+|   elasticConstantMatrix        : [ +2.10e+11 +1.01e+11 +1.01e+11 +0.00e+00 +0.00e+00 +0.00e+00  
+|                                    +1.01e+11 +2.10e+11 +1.01e+11 +0.00e+00 +0.00e+00 +0.00e+00  
+|                                    +1.01e+11 +1.01e+11 +2.10e+11 +0.00e+00 +0.00e+00 +0.00e+00  
+|                                    +0.00e+00 +0.00e+00 +0.00e+00 +5.46e+10 +0.00e+00 +0.00e+00  
+|                                    +0.00e+00 +0.00e+00 +0.00e+00 +0.00e+00 +5.46e+10 +0.00e+00  
+|                                    +0.00e+00 +0.00e+00 +0.00e+00 +0.00e+00 +0.00e+00 +5.46e+10 ]
+|
+| Simulation parameters
+|   shear modulus                : 5.460000e+10
+|   Young's modulus              : 1.729500e+11
+|   poisson ratio                : 0.324000
+|   ecrit                        : 0.000100
+|   c/a                          : 1.568000
+|   temp                         : 600.00 K
+|   pressure                     : 0.0000 MPa
+|   load type                    : 1
+|   applied stress               : [ +0.0e+00 +0.0e+00 +0.0e+00 +0.0e+00 +0.0e+00 +0.0e+00 ]
+|   eRate                        : +1000.000000
+|   edotdir                      : [ +0.0000 +0.0000 +1.0000 ]
+|   rotMatrix                    : [ +1.0000 +0.0000 +0.0000  
+|                                    +0.0000 +1.0000 +0.0000  
+|                                    +0.0000 +0.0000 +1.0000 ]
+|
+| GPU and OpenMP acceleration
+|   gpu_enabled                  : no
+|
++----------------------------------------------------------------------------------------
+ParadisInit finished
+cycle=1         realdt=1.000000e-12 timeNow=1.000000e-12 date=Thu Jun 18 18:37:16 2026 elapsed=00:00:00.0 walldt= 0.0s mem=146MB
+cycle=2         realdt=1.200000e-12 timeNow=2.200000e-12 date=Thu Jun 18 18:37:17 2026 elapsed=00:00:01.3 walldt= 1.3s mem=147MB
+cycle=3         realdt=1.440000e-12 timeNow=3.640000e-12 date=Thu Jun 18 18:37:18 2026 elapsed=00:00:02.5 walldt= 1.1s mem=148MB
+cycle=4         realdt=1.728000e-12 timeNow=5.368000e-12 date=Thu Jun 18 18:37:20 2026 elapsed=00:00:03.9 walldt= 1.4s mem=152MB
+cycle=5         realdt=2.073600e-12 timeNow=7.441600e-12 date=Thu Jun 18 18:37:21 2026 elapsed=00:00:05.0 walldt= 1.1s mem=152MB
+cycle=6         realdt=2.488320e-12 timeNow=9.929920e-12 date=Thu Jun 18 18:37:22 2026 elapsed=00:00:06.0 walldt= 1.0s mem=152MB
+cycle=7         realdt=2.985984e-12 timeNow=1.291590e-11 date=Thu Jun 18 18:37:23 2026 elapsed=00:00:07.4 walldt= 1.5s mem=152MB
+cycle=8         realdt=3.583181e-12 timeNow=1.649908e-11 date=Thu Jun 18 18:37:25 2026 elapsed=00:00:08.7 walldt= 1.3s mem=153MB
+cycle=9         realdt=4.299817e-12 timeNow=2.079890e-11 date=Thu Jun 18 18:37:26 2026 elapsed=00:00:10.2 walldt= 1.5s mem=153MB
+cycle=10        realdt=5.159780e-12 timeNow=2.595868e-11 date=Thu Jun 18 18:37:28 2026 elapsed=00:00:11.5 walldt= 1.3s mem=153MB
+cycle=11        realdt=6.191736e-12 timeNow=3.215042e-11 date=Thu Jun 18 18:37:29 2026 elapsed=00:00:12.7 walldt= 1.2s mem=153MB
+cycle=12        realdt=7.430084e-12 timeNow=3.958050e-11 date=Thu Jun 18 18:37:30 2026 elapsed=00:00:13.6 walldt= 0.9s mem=153MB
+cycle=13        realdt=8.916100e-12 timeNow=4.849660e-11 date=Thu Jun 18 18:37:31 2026 elapsed=00:00:14.9 walldt= 1.3s mem=157MB
+cycle=14        realdt=1.069932e-11 timeNow=5.919592e-11 date=Thu Jun 18 18:37:32 2026 elapsed=00:00:16.0 walldt= 1.1s mem=158MB
+cycle=15        realdt=1.283918e-11 timeNow=7.203511e-11 date=Thu Jun 18 18:37:33 2026 elapsed=00:00:17.2 walldt= 1.3s mem=158MB
+cycle=16        realdt=1.540702e-11 timeNow=8.744213e-11 date=Thu Jun 18 18:37:34 2026 elapsed=00:00:18.1 walldt= 0.9s mem=158MB
+cycle=17        realdt=1.848843e-11 timeNow=1.059306e-10 date=Thu Jun 18 18:37:35 2026 elapsed=00:00:19.3 walldt= 1.1s mem=158MB
+cycle=18        realdt=2.218611e-11 timeNow=1.281167e-10 date=Thu Jun 18 18:37:37 2026 elapsed=00:00:20.5 walldt= 1.2s mem=158MB
+cycle=19        realdt=6.655833e-12 timeNow=1.347725e-10 date=Thu Jun 18 18:37:40 2026 elapsed=00:00:24.2 walldt= 3.8s mem=158MB
+cycle=20        realdt=6.655833e-12 timeNow=1.414283e-10 date=Thu Jun 18 18:37:41 2026 elapsed=00:00:25.5 walldt= 1.2s mem=158MB
+cycle=21        realdt=7.987000e-12 timeNow=1.494153e-10 date=Thu Jun 18 18:37:42 2026 elapsed=00:00:26.5 walldt= 1.0s mem=158MB
+cycle=22        realdt=9.584400e-12 timeNow=1.589997e-10 date=Thu Jun 18 18:37:43 2026 elapsed=00:00:27.5 walldt= 1.0s mem=158MB
+cycle=23        realdt=5.750640e-12 timeNow=1.647504e-10 date=Thu Jun 18 18:37:46 2026 elapsed=00:00:29.8 walldt= 2.3s mem=158MB
+cycle=24        realdt=5.750640e-12 timeNow=1.705010e-10 date=Thu Jun 18 18:37:47 2026 elapsed=00:00:30.8 walldt= 1.0s mem=158MB
+cycle=25        realdt=6.900768e-12 timeNow=1.774018e-10 date=Thu Jun 18 18:37:48 2026 elapsed=00:00:31.8 walldt= 1.1s mem=158MB
+cycle=26        realdt=8.280922e-12 timeNow=1.856827e-10 date=Thu Jun 18 18:37:49 2026 elapsed=00:00:32.9 walldt= 1.1s mem=158MB
+cycle=27        realdt=9.937106e-12 timeNow=1.956198e-10 date=Thu Jun 18 18:37:50 2026 elapsed=00:00:34.0 walldt= 1.1s mem=159MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=28        realdt=5.962264e-12 timeNow=2.015821e-10 date=Thu Jun 18 18:37:52 2026 elapsed=00:00:36.3 walldt= 2.2s mem=159MB
+cycle=29        realdt=5.962264e-12 timeNow=2.075443e-10 date=Thu Jun 18 18:37:53 2026 elapsed=00:00:37.3 walldt= 1.1s mem=159MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=30        realdt=7.154716e-12 timeNow=2.146991e-10 date=Thu Jun 18 18:37:54 2026 elapsed=00:00:38.3 walldt= 1.0s mem=159MB
+cycle=31        realdt=8.585659e-12 timeNow=2.232847e-10 date=Thu Jun 18 18:37:56 2026 elapsed=00:00:39.7 walldt= 1.4s mem=159MB
+cycle=32        realdt=5.151396e-12 timeNow=2.284361e-10 date=Thu Jun 18 18:37:58 2026 elapsed=00:00:42.0 walldt= 2.4s mem=159MB
+cycle=33        realdt=2.575698e-12 timeNow=2.310118e-10 date=Thu Jun 18 18:38:00 2026 elapsed=00:00:44.3 walldt= 2.3s mem=159MB
+cycle=34        realdt=2.575698e-12 timeNow=2.335875e-10 date=Thu Jun 18 18:38:02 2026 elapsed=00:00:45.9 walldt= 1.6s mem=159MB
+cycle=35        realdt=3.090837e-12 timeNow=2.366783e-10 date=Thu Jun 18 18:38:03 2026 elapsed=00:00:46.8 walldt= 1.0s mem=159MB
+cycle=36        realdt=3.709005e-12 timeNow=2.403873e-10 date=Thu Jun 18 18:38:04 2026 elapsed=00:00:48.0 walldt= 1.2s mem=159MB
+cycle=37        realdt=4.450806e-12 timeNow=2.448382e-10 date=Thu Jun 18 18:38:05 2026 elapsed=00:00:49.2 walldt= 1.2s mem=159MB
+cycle=38        realdt=5.340967e-12 timeNow=2.501791e-10 date=Thu Jun 18 18:38:07 2026 elapsed=00:00:50.6 walldt= 1.3s mem=159MB
+cycle=39        realdt=6.409160e-12 timeNow=2.565883e-10 date=Thu Jun 18 18:38:07 2026 elapsed=00:00:51.5 walldt= 0.9s mem=159MB
+cycle=40        realdt=3.845496e-12 timeNow=2.604338e-10 date=Thu Jun 18 18:38:10 2026 elapsed=00:00:53.8 walldt= 2.3s mem=159MB
+cycle=41        realdt=3.845496e-12 timeNow=2.642793e-10 date=Thu Jun 18 18:38:11 2026 elapsed=00:00:55.1 walldt= 1.3s mem=159MB
+cycle=42        realdt=4.614596e-12 timeNow=2.688939e-10 date=Thu Jun 18 18:38:12 2026 elapsed=00:00:56.0 walldt= 0.9s mem=159MB
+cycle=43        realdt=5.537515e-12 timeNow=2.744314e-10 date=Thu Jun 18 18:38:13 2026 elapsed=00:00:57.0 walldt= 1.0s mem=159MB
+cycle=44        realdt=3.322509e-12 timeNow=2.777539e-10 date=Thu Jun 18 18:38:15 2026 elapsed=00:00:59.1 walldt= 2.1s mem=159MB
+cycle=45        realdt=3.322509e-12 timeNow=2.810764e-10 date=Thu Jun 18 18:38:16 2026 elapsed=00:01:00.2 walldt= 1.1s mem=159MB
+cycle=46        realdt=3.987011e-12 timeNow=2.850634e-10 date=Thu Jun 18 18:38:18 2026 elapsed=00:01:01.6 walldt= 1.4s mem=159MB
+cycle=47        realdt=4.784413e-12 timeNow=2.898478e-10 date=Thu Jun 18 18:38:19 2026 elapsed=00:01:02.5 walldt= 0.9s mem=159MB
+cycle=48        realdt=2.870648e-12 timeNow=2.927185e-10 date=Thu Jun 18 18:38:21 2026 elapsed=00:01:04.5 walldt= 2.0s mem=159MB
+cycle=49        realdt=2.870648e-12 timeNow=2.955891e-10 date=Thu Jun 18 18:38:22 2026 elapsed=00:01:05.8 walldt= 1.3s mem=159MB
+cycle=50        realdt=3.444777e-12 timeNow=2.990339e-10 date=Thu Jun 18 18:38:23 2026 elapsed=00:01:06.8 walldt= 0.9s mem=159MB
+ +++ Writing Gnuplot file(s) 0t0001
+ +++ Writing Povray file(s) povframe0001
+cycle=51        realdt=4.133733e-12 timeNow=3.031676e-10 date=Thu Jun 18 18:38:24 2026 elapsed=00:01:08.0 walldt= 1.3s mem=159MB
+cycle=52        realdt=4.960479e-12 timeNow=3.081281e-10 date=Thu Jun 18 18:38:25 2026 elapsed=00:01:09.4 walldt= 1.4s mem=159MB
+cycle=53        realdt=5.952575e-12 timeNow=3.140807e-10 date=Thu Jun 18 18:38:26 2026 elapsed=00:01:10.4 walldt= 1.0s mem=159MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=54        realdt=3.571545e-12 timeNow=3.176522e-10 date=Thu Jun 18 18:38:29 2026 elapsed=00:01:12.6 walldt= 2.2s mem=159MB
+cycle=55        realdt=3.571545e-12 timeNow=3.212238e-10 date=Thu Jun 18 18:38:30 2026 elapsed=00:01:13.8 walldt= 1.2s mem=159MB
+cycle=56        realdt=4.285854e-12 timeNow=3.255096e-10 date=Thu Jun 18 18:38:31 2026 elapsed=00:01:15.0 walldt= 1.2s mem=159MB
+cycle=57        realdt=5.143025e-12 timeNow=3.306526e-10 date=Thu Jun 18 18:38:32 2026 elapsed=00:01:16.2 walldt= 1.3s mem=159MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=58        realdt=6.171630e-12 timeNow=3.368243e-10 date=Thu Jun 18 18:38:33 2026 elapsed=00:01:17.2 walldt= 1.0s mem=159MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=59        realdt=3.702978e-12 timeNow=3.405273e-10 date=Thu Jun 18 18:38:35 2026 elapsed=00:01:19.3 walldt= 2.1s mem=159MB
+cycle=60        realdt=3.702978e-12 timeNow=3.442302e-10 date=Thu Jun 18 18:38:36 2026 elapsed=00:01:20.4 walldt= 1.1s mem=159MB
+cycle=61        realdt=4.443573e-12 timeNow=3.486738e-10 date=Thu Jun 18 18:38:38 2026 elapsed=00:01:21.5 walldt= 1.1s mem=159MB
+cycle=62        realdt=5.332288e-12 timeNow=3.540061e-10 date=Thu Jun 18 18:38:39 2026 elapsed=00:01:22.5 walldt= 1.0s mem=160MB
+cycle=63        realdt=3.199373e-12 timeNow=3.572055e-10 date=Thu Jun 18 18:38:41 2026 elapsed=00:01:24.7 walldt= 2.2s mem=160MB
+cycle=64        realdt=3.199373e-12 timeNow=3.604048e-10 date=Thu Jun 18 18:38:42 2026 elapsed=00:01:25.8 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=65        realdt=3.839247e-12 timeNow=3.642441e-10 date=Thu Jun 18 18:38:43 2026 elapsed=00:01:26.9 walldt= 1.2s mem=160MB
+cycle=66        realdt=4.607097e-12 timeNow=3.688512e-10 date=Thu Jun 18 18:38:44 2026 elapsed=00:01:28.0 walldt= 1.1s mem=160MB
+cycle=67        realdt=2.764258e-12 timeNow=3.716154e-10 date=Thu Jun 18 18:38:46 2026 elapsed=00:01:29.9 walldt= 1.9s mem=160MB
+cycle=68        realdt=2.764258e-12 timeNow=3.743797e-10 date=Thu Jun 18 18:38:47 2026 elapsed=00:01:30.9 walldt= 1.0s mem=160MB
+cycle=69        realdt=3.317110e-12 timeNow=3.776968e-10 date=Thu Jun 18 18:38:48 2026 elapsed=00:01:32.0 walldt= 1.1s mem=160MB
+cycle=70        realdt=3.980532e-12 timeNow=3.816773e-10 date=Thu Jun 18 18:38:49 2026 elapsed=00:01:32.8 walldt= 0.8s mem=160MB
+cycle=71        realdt=4.776638e-12 timeNow=3.864540e-10 date=Thu Jun 18 18:38:50 2026 elapsed=00:01:34.1 walldt= 1.3s mem=160MB
+cycle=72        realdt=5.731966e-12 timeNow=3.921859e-10 date=Thu Jun 18 18:38:51 2026 elapsed=00:01:35.2 walldt= 1.1s mem=160MB
+cycle=73        realdt=6.878359e-12 timeNow=3.990643e-10 date=Thu Jun 18 18:38:52 2026 elapsed=00:01:36.3 walldt= 1.1s mem=160MB
+cycle=74        realdt=4.127015e-12 timeNow=4.031913e-10 date=Thu Jun 18 18:38:55 2026 elapsed=00:01:38.6 walldt= 2.3s mem=160MB
+cycle=75        realdt=4.127015e-12 timeNow=4.073183e-10 date=Thu Jun 18 18:38:56 2026 elapsed=00:01:39.6 walldt= 1.1s mem=160MB
+cycle=76        realdt=2.476209e-12 timeNow=4.097945e-10 date=Thu Jun 18 18:38:58 2026 elapsed=00:01:41.7 walldt= 2.1s mem=160MB
+cycle=77        realdt=2.476209e-12 timeNow=4.122708e-10 date=Thu Jun 18 18:38:59 2026 elapsed=00:01:43.0 walldt= 1.3s mem=160MB
+cycle=78        realdt=2.971451e-12 timeNow=4.152422e-10 date=Thu Jun 18 18:39:00 2026 elapsed=00:01:44.0 walldt= 1.0s mem=160MB
+cycle=79        realdt=3.565741e-12 timeNow=4.188079e-10 date=Thu Jun 18 18:39:01 2026 elapsed=00:01:44.9 walldt= 0.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=80        realdt=4.278889e-12 timeNow=4.230868e-10 date=Thu Jun 18 18:39:02 2026 elapsed=00:01:45.8 walldt= 0.9s mem=160MB
+cycle=81        realdt=5.134667e-12 timeNow=4.282215e-10 date=Thu Jun 18 18:39:03 2026 elapsed=00:01:46.6 walldt= 0.8s mem=160MB
+cycle=82        realdt=3.080800e-12 timeNow=4.313023e-10 date=Thu Jun 18 18:39:05 2026 elapsed=00:01:48.8 walldt= 2.3s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=83        realdt=3.080800e-12 timeNow=4.343831e-10 date=Thu Jun 18 18:39:06 2026 elapsed=00:01:49.8 walldt= 1.0s mem=160MB
+cycle=84        realdt=3.696960e-12 timeNow=4.380801e-10 date=Thu Jun 18 18:39:07 2026 elapsed=00:01:50.8 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=85        realdt=4.436353e-12 timeNow=4.425164e-10 date=Thu Jun 18 18:39:08 2026 elapsed=00:01:51.7 walldt= 0.9s mem=160MB
+cycle=86        realdt=2.661812e-12 timeNow=4.451782e-10 date=Thu Jun 18 18:39:10 2026 elapsed=00:01:53.8 walldt= 2.0s mem=160MB
+cycle=87        realdt=2.661812e-12 timeNow=4.478400e-10 date=Thu Jun 18 18:39:11 2026 elapsed=00:01:54.8 walldt= 1.1s mem=160MB
+cycle=88        realdt=3.194174e-12 timeNow=4.510342e-10 date=Thu Jun 18 18:39:12 2026 elapsed=00:01:55.9 walldt= 1.0s mem=160MB
+cycle=89        realdt=3.833009e-12 timeNow=4.548672e-10 date=Thu Jun 18 18:39:13 2026 elapsed=00:01:57.0 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=90        realdt=4.599610e-12 timeNow=4.594668e-10 date=Thu Jun 18 18:39:14 2026 elapsed=00:01:58.1 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=91        realdt=5.519532e-12 timeNow=4.649864e-10 date=Thu Jun 18 18:39:15 2026 elapsed=00:01:59.5 walldt= 1.3s mem=160MB
+cycle=92        realdt=3.311719e-12 timeNow=4.682981e-10 date=Thu Jun 18 18:39:18 2026 elapsed=00:02:01.6 walldt= 2.1s mem=160MB
+cycle=93        realdt=3.311719e-12 timeNow=4.716098e-10 date=Thu Jun 18 18:39:18 2026 elapsed=00:02:02.4 walldt= 0.9s mem=160MB
+cycle=94        realdt=3.974063e-12 timeNow=4.755839e-10 date=Thu Jun 18 18:39:19 2026 elapsed=00:02:03.5 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=95        realdt=2.384438e-12 timeNow=4.779683e-10 date=Thu Jun 18 18:39:21 2026 elapsed=00:02:05.3 walldt= 1.9s mem=160MB
+cycle=96        realdt=2.384438e-12 timeNow=4.803527e-10 date=Thu Jun 18 18:39:23 2026 elapsed=00:02:06.5 walldt= 1.2s mem=160MB
+cycle=97        realdt=2.861326e-12 timeNow=4.832141e-10 date=Thu Jun 18 18:39:24 2026 elapsed=00:02:07.8 walldt= 1.2s mem=160MB
+cycle=98        realdt=3.433591e-12 timeNow=4.866477e-10 date=Thu Jun 18 18:39:25 2026 elapsed=00:02:08.9 walldt= 1.2s mem=160MB
+cycle=99        realdt=4.120309e-12 timeNow=4.907680e-10 date=Thu Jun 18 18:39:26 2026 elapsed=00:02:09.9 walldt= 0.9s mem=160MB
+cycle=100       realdt=4.944371e-12 timeNow=4.957123e-10 date=Thu Jun 18 18:39:27 2026 elapsed=00:02:10.7 walldt= 0.8s mem=160MB
+ +++ Writing Gnuplot file(s) 0t0002
+ +++ Writing Povray file(s) povframe0002
+ +++ Wrote restart file(s) rs0001
+cycle=101       realdt=2.966622e-12 timeNow=4.986790e-10 date=Thu Jun 18 18:39:31 2026 elapsed=00:02:14.8 walldt= 4.1s mem=160MB
+cycle=102       realdt=2.966622e-12 timeNow=5.016456e-10 date=Thu Jun 18 18:39:32 2026 elapsed=00:02:16.0 walldt= 1.2s mem=160MB
+cycle=103       realdt=3.559947e-12 timeNow=5.052055e-10 date=Thu Jun 18 18:39:33 2026 elapsed=00:02:16.9 walldt= 0.9s mem=160MB
+cycle=104       realdt=2.135968e-12 timeNow=5.073415e-10 date=Thu Jun 18 18:39:35 2026 elapsed=00:02:19.1 walldt= 2.2s mem=160MB
+cycle=105       realdt=2.135968e-12 timeNow=5.094775e-10 date=Thu Jun 18 18:39:36 2026 elapsed=00:02:20.3 walldt= 1.3s mem=160MB
+cycle=106       realdt=2.563162e-12 timeNow=5.120406e-10 date=Thu Jun 18 18:39:37 2026 elapsed=00:02:21.4 walldt= 1.1s mem=160MB
+cycle=107       realdt=3.075794e-12 timeNow=5.151164e-10 date=Thu Jun 18 18:39:38 2026 elapsed=00:02:22.5 walldt= 1.1s mem=160MB
+cycle=108       realdt=3.690953e-12 timeNow=5.188074e-10 date=Thu Jun 18 18:39:39 2026 elapsed=00:02:23.4 walldt= 0.9s mem=160MB
+cycle=109       realdt=4.429143e-12 timeNow=5.232365e-10 date=Thu Jun 18 18:39:41 2026 elapsed=00:02:24.6 walldt= 1.2s mem=160MB
+cycle=110       realdt=5.314972e-12 timeNow=5.285515e-10 date=Thu Jun 18 18:39:42 2026 elapsed=00:02:25.6 walldt= 1.0s mem=160MB
+cycle=111       realdt=6.377967e-12 timeNow=5.349295e-10 date=Thu Jun 18 18:39:43 2026 elapsed=00:02:26.8 walldt= 1.2s mem=160MB
+cycle=112       realdt=3.826780e-12 timeNow=5.387562e-10 date=Thu Jun 18 18:39:45 2026 elapsed=00:02:29.2 walldt= 2.4s mem=160MB
+cycle=113       realdt=1.913390e-12 timeNow=5.406696e-10 date=Thu Jun 18 18:39:47 2026 elapsed=00:02:31.4 walldt= 2.2s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=114       realdt=1.913390e-12 timeNow=5.425830e-10 date=Thu Jun 18 18:39:48 2026 elapsed=00:02:32.4 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=115       realdt=2.296068e-12 timeNow=5.448791e-10 date=Thu Jun 18 18:39:50 2026 elapsed=00:02:33.6 walldt= 1.2s mem=160MB
+cycle=116       realdt=2.755282e-12 timeNow=5.476344e-10 date=Thu Jun 18 18:39:51 2026 elapsed=00:02:34.6 walldt= 1.0s mem=160MB
+cycle=117       realdt=3.306338e-12 timeNow=5.509407e-10 date=Thu Jun 18 18:39:52 2026 elapsed=00:02:35.5 walldt= 0.9s mem=160MB
+cycle=118       realdt=3.967605e-12 timeNow=5.549083e-10 date=Thu Jun 18 18:39:53 2026 elapsed=00:02:36.8 walldt= 1.3s mem=160MB
+cycle=119       realdt=4.761126e-12 timeNow=5.596694e-10 date=Thu Jun 18 18:39:54 2026 elapsed=00:02:38.0 walldt= 1.2s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=120       realdt=5.713352e-12 timeNow=5.653828e-10 date=Thu Jun 18 18:39:55 2026 elapsed=00:02:39.0 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=121       realdt=6.856022e-12 timeNow=5.722388e-10 date=Thu Jun 18 18:39:56 2026 elapsed=00:02:40.2 walldt= 1.2s mem=160MB
+cycle=122       realdt=8.227227e-12 timeNow=5.804660e-10 date=Thu Jun 18 18:39:57 2026 elapsed=00:02:41.1 walldt= 0.8s mem=160MB
+cycle=123       realdt=4.936336e-12 timeNow=5.854024e-10 date=Thu Jun 18 18:39:59 2026 elapsed=00:02:43.3 walldt= 2.2s mem=160MB
+cycle=124       realdt=2.468168e-12 timeNow=5.878705e-10 date=Thu Jun 18 18:40:01 2026 elapsed=00:02:45.4 walldt= 2.2s mem=160MB
+cycle=125       realdt=2.468168e-12 timeNow=5.903387e-10 date=Thu Jun 18 18:40:02 2026 elapsed=00:02:46.5 walldt= 1.0s mem=160MB
+cycle=126       realdt=2.961802e-12 timeNow=5.933005e-10 date=Thu Jun 18 18:40:04 2026 elapsed=00:02:47.7 walldt= 1.2s mem=160MB
+cycle=127       realdt=3.554162e-12 timeNow=5.968547e-10 date=Thu Jun 18 18:40:05 2026 elapsed=00:02:48.9 walldt= 1.2s mem=160MB
+cycle=128       realdt=4.264994e-12 timeNow=6.011197e-10 date=Thu Jun 18 18:40:06 2026 elapsed=00:02:50.0 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=129       realdt=5.117993e-12 timeNow=6.062377e-10 date=Thu Jun 18 18:40:07 2026 elapsed=00:02:50.9 walldt= 1.0s mem=160MB
+cycle=130       realdt=6.141592e-12 timeNow=6.123792e-10 date=Thu Jun 18 18:40:08 2026 elapsed=00:02:51.8 walldt= 0.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=131       realdt=7.369910e-12 timeNow=6.197492e-10 date=Thu Jun 18 18:40:09 2026 elapsed=00:02:52.8 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=132       realdt=4.421946e-12 timeNow=6.241711e-10 date=Thu Jun 18 18:40:11 2026 elapsed=00:02:54.9 walldt= 2.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=133       realdt=4.421946e-12 timeNow=6.285931e-10 date=Thu Jun 18 18:40:12 2026 elapsed=00:02:56.3 walldt= 1.4s mem=160MB
+cycle=134       realdt=2.653168e-12 timeNow=6.312462e-10 date=Thu Jun 18 18:40:15 2026 elapsed=00:02:58.6 walldt= 2.2s mem=160MB
+cycle=135       realdt=2.653168e-12 timeNow=6.338994e-10 date=Thu Jun 18 18:40:16 2026 elapsed=00:02:59.5 walldt= 0.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=136       realdt=3.183801e-12 timeNow=6.370832e-10 date=Thu Jun 18 18:40:17 2026 elapsed=00:03:00.8 walldt= 1.2s mem=160MB
+cycle=137       realdt=3.820561e-12 timeNow=6.409037e-10 date=Thu Jun 18 18:40:18 2026 elapsed=00:03:01.6 walldt= 0.8s mem=160MB
+cycle=138       realdt=4.584674e-12 timeNow=6.454884e-10 date=Thu Jun 18 18:40:19 2026 elapsed=00:03:02.5 walldt= 0.9s mem=160MB
+cycle=139       realdt=5.501608e-12 timeNow=6.509900e-10 date=Thu Jun 18 18:40:19 2026 elapsed=00:03:03.5 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=140       realdt=6.601930e-12 timeNow=6.575920e-10 date=Thu Jun 18 18:40:20 2026 elapsed=00:03:04.4 walldt= 0.9s mem=160MB
+cycle=141       realdt=7.922316e-12 timeNow=6.655143e-10 date=Thu Jun 18 18:40:22 2026 elapsed=00:03:05.5 walldt= 1.1s mem=160MB
+cycle=142       realdt=9.506779e-12 timeNow=6.750211e-10 date=Thu Jun 18 18:40:23 2026 elapsed=00:03:06.6 walldt= 1.1s mem=160MB
+cycle=143       realdt=1.140814e-11 timeNow=6.864292e-10 date=Thu Jun 18 18:40:24 2026 elapsed=00:03:07.7 walldt= 1.1s mem=160MB
+cycle=144       realdt=6.844881e-12 timeNow=6.932741e-10 date=Thu Jun 18 18:40:26 2026 elapsed=00:03:09.9 walldt= 2.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=145       realdt=6.844881e-12 timeNow=7.001190e-10 date=Thu Jun 18 18:40:27 2026 elapsed=00:03:11.3 walldt= 1.4s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=146       realdt=4.106929e-12 timeNow=7.042259e-10 date=Thu Jun 18 18:40:29 2026 elapsed=00:03:13.0 walldt= 1.7s mem=160MB
+cycle=147       realdt=4.106929e-12 timeNow=7.083328e-10 date=Thu Jun 18 18:40:30 2026 elapsed=00:03:13.7 walldt= 0.8s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=148       realdt=4.928314e-12 timeNow=7.132611e-10 date=Thu Jun 18 18:40:31 2026 elapsed=00:03:14.7 walldt= 1.0s mem=160MB
+cycle=149       realdt=2.956989e-12 timeNow=7.162181e-10 date=Thu Jun 18 18:40:33 2026 elapsed=00:03:16.6 walldt= 1.9s mem=160MB
+cycle=150       realdt=2.956989e-12 timeNow=7.191751e-10 date=Thu Jun 18 18:40:33 2026 elapsed=00:03:17.3 walldt= 0.7s mem=160MB
+ +++ Writing Gnuplot file(s) 0t0003
+ +++ Writing Povray file(s) povframe0003
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=151       realdt=1.774193e-12 timeNow=7.209493e-10 date=Thu Jun 18 18:40:36 2026 elapsed=00:03:19.7 walldt= 2.4s mem=160MB
+cycle=152       realdt=1.774193e-12 timeNow=7.227235e-10 date=Thu Jun 18 18:40:37 2026 elapsed=00:03:20.7 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=153       realdt=2.129032e-12 timeNow=7.248525e-10 date=Thu Jun 18 18:40:38 2026 elapsed=00:03:22.0 walldt= 1.3s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=154       realdt=2.554838e-12 timeNow=7.274074e-10 date=Thu Jun 18 18:40:39 2026 elapsed=00:03:23.4 walldt= 1.4s mem=160MB
+cycle=155       realdt=3.065806e-12 timeNow=7.304732e-10 date=Thu Jun 18 18:40:40 2026 elapsed=00:03:24.4 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=156       realdt=3.678967e-12 timeNow=7.341521e-10 date=Thu Jun 18 18:40:42 2026 elapsed=00:03:25.5 walldt= 1.1s mem=160MB
+cycle=157       realdt=4.414760e-12 timeNow=7.385669e-10 date=Thu Jun 18 18:40:43 2026 elapsed=00:03:26.6 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=158       realdt=5.297712e-12 timeNow=7.438646e-10 date=Thu Jun 18 18:40:43 2026 elapsed=00:03:27.4 walldt= 0.8s mem=160MB
+cycle=159       realdt=6.357255e-12 timeNow=7.502219e-10 date=Thu Jun 18 18:40:44 2026 elapsed=00:03:28.4 walldt= 1.1s mem=160MB
+cycle=160       realdt=7.628706e-12 timeNow=7.578506e-10 date=Thu Jun 18 18:40:46 2026 elapsed=00:03:29.6 walldt= 1.1s mem=160MB
+cycle=161       realdt=9.154447e-12 timeNow=7.670050e-10 date=Thu Jun 18 18:40:47 2026 elapsed=00:03:30.9 walldt= 1.3s mem=160MB
+cycle=162       realdt=1.098534e-11 timeNow=7.779904e-10 date=Thu Jun 18 18:40:48 2026 elapsed=00:03:31.9 walldt= 1.0s mem=160MB
+cycle=163       realdt=6.591202e-12 timeNow=7.845816e-10 date=Thu Jun 18 18:40:50 2026 elapsed=00:03:34.0 walldt= 2.1s mem=160MB
+cycle=164       realdt=6.591202e-12 timeNow=7.911728e-10 date=Thu Jun 18 18:40:51 2026 elapsed=00:03:34.8 walldt= 0.8s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=165       realdt=7.909442e-12 timeNow=7.990822e-10 date=Thu Jun 18 18:40:52 2026 elapsed=00:03:35.8 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=166       realdt=9.491331e-12 timeNow=8.085735e-10 date=Thu Jun 18 18:40:53 2026 elapsed=00:03:36.8 walldt= 1.0s mem=160MB
+cycle=167       realdt=1.138960e-11 timeNow=8.199631e-10 date=Thu Jun 18 18:40:54 2026 elapsed=00:03:37.9 walldt= 1.1s mem=160MB
+cycle=168       realdt=1.366752e-11 timeNow=8.336306e-10 date=Thu Jun 18 18:40:55 2026 elapsed=00:03:38.9 walldt= 0.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=169       realdt=1.640102e-11 timeNow=8.500317e-10 date=Thu Jun 18 18:40:56 2026 elapsed=00:03:39.9 walldt= 1.0s mem=160MB
+cycle=170       realdt=9.840612e-12 timeNow=8.598723e-10 date=Thu Jun 18 18:40:58 2026 elapsed=00:03:41.9 walldt= 2.0s mem=160MB
+cycle=171       realdt=4.920306e-12 timeNow=8.647926e-10 date=Thu Jun 18 18:41:00 2026 elapsed=00:03:43.8 walldt= 1.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=172       realdt=4.920306e-12 timeNow=8.697129e-10 date=Thu Jun 18 18:41:01 2026 elapsed=00:03:44.8 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=173       realdt=2.952184e-12 timeNow=8.726651e-10 date=Thu Jun 18 18:41:03 2026 elapsed=00:03:46.8 walldt= 2.0s mem=160MB
+cycle=174       realdt=2.952184e-12 timeNow=8.756173e-10 date=Thu Jun 18 18:41:04 2026 elapsed=00:03:47.7 walldt= 0.8s mem=160MB
+cycle=175       realdt=3.542620e-12 timeNow=8.791599e-10 date=Thu Jun 18 18:41:05 2026 elapsed=00:03:48.9 walldt= 1.2s mem=160MB
+cycle=176       realdt=4.251144e-12 timeNow=8.834110e-10 date=Thu Jun 18 18:41:06 2026 elapsed=00:03:50.0 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=177       realdt=5.101373e-12 timeNow=8.885124e-10 date=Thu Jun 18 18:41:07 2026 elapsed=00:03:51.2 walldt= 1.2s mem=160MB
+cycle=178       realdt=6.121648e-12 timeNow=8.946340e-10 date=Thu Jun 18 18:41:08 2026 elapsed=00:03:52.3 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=179       realdt=7.345977e-12 timeNow=9.019800e-10 date=Thu Jun 18 18:41:09 2026 elapsed=00:03:53.2 walldt= 0.9s mem=160MB
+cycle=180       realdt=8.815173e-12 timeNow=9.107952e-10 date=Thu Jun 18 18:41:10 2026 elapsed=00:03:54.4 walldt= 1.2s mem=160MB
+cycle=181       realdt=1.057821e-11 timeNow=9.213734e-10 date=Thu Jun 18 18:41:12 2026 elapsed=00:03:55.7 walldt= 1.3s mem=160MB
+cycle=182       realdt=6.346924e-12 timeNow=9.277203e-10 date=Thu Jun 18 18:41:14 2026 elapsed=00:03:58.1 walldt= 2.4s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=183       realdt=3.173462e-12 timeNow=9.308938e-10 date=Thu Jun 18 18:41:16 2026 elapsed=00:04:00.2 walldt= 2.1s mem=160MB
+cycle=184       realdt=3.173462e-12 timeNow=9.340672e-10 date=Thu Jun 18 18:41:17 2026 elapsed=00:04:01.4 walldt= 1.2s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=185       realdt=3.808155e-12 timeNow=9.378754e-10 date=Thu Jun 18 18:41:18 2026 elapsed=00:04:02.3 walldt= 0.9s mem=160MB
+cycle=186       realdt=4.569786e-12 timeNow=9.424452e-10 date=Thu Jun 18 18:41:19 2026 elapsed=00:04:03.4 walldt= 1.1s mem=160MB
+cycle=187       realdt=5.483743e-12 timeNow=9.479289e-10 date=Thu Jun 18 18:41:20 2026 elapsed=00:04:04.4 walldt= 1.0s mem=160MB
+cycle=188       realdt=6.580491e-12 timeNow=9.545094e-10 date=Thu Jun 18 18:41:21 2026 elapsed=00:04:05.3 walldt= 0.9s mem=160MB
+cycle=189       realdt=3.948295e-12 timeNow=9.584577e-10 date=Thu Jun 18 18:41:24 2026 elapsed=00:04:07.6 walldt= 2.3s mem=160MB
+cycle=190       realdt=3.948295e-12 timeNow=9.624060e-10 date=Thu Jun 18 18:41:25 2026 elapsed=00:04:08.7 walldt= 1.1s mem=160MB
+cycle=191       realdt=4.737954e-12 timeNow=9.671440e-10 date=Thu Jun 18 18:41:26 2026 elapsed=00:04:09.6 walldt= 0.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=192       realdt=2.842772e-12 timeNow=9.699867e-10 date=Thu Jun 18 18:41:28 2026 elapsed=00:04:11.8 walldt= 2.2s mem=160MB
+cycle=193       realdt=2.842772e-12 timeNow=9.728295e-10 date=Thu Jun 18 18:41:29 2026 elapsed=00:04:13.0 walldt= 1.2s mem=160MB
+cycle=194       realdt=1.705663e-12 timeNow=9.745352e-10 date=Thu Jun 18 18:41:31 2026 elapsed=00:04:15.4 walldt= 2.4s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=195       realdt=1.705663e-12 timeNow=9.762408e-10 date=Thu Jun 18 18:41:33 2026 elapsed=00:04:16.6 walldt= 1.3s mem=160MB
+cycle=196       realdt=2.046796e-12 timeNow=9.782876e-10 date=Thu Jun 18 18:41:34 2026 elapsed=00:04:17.8 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=197       realdt=2.456155e-12 timeNow=9.807438e-10 date=Thu Jun 18 18:41:35 2026 elapsed=00:04:18.8 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=198       realdt=2.947386e-12 timeNow=9.836912e-10 date=Thu Jun 18 18:41:36 2026 elapsed=00:04:19.8 walldt= 1.0s mem=160MB
+cycle=199       realdt=3.536863e-12 timeNow=9.872280e-10 date=Thu Jun 18 18:41:37 2026 elapsed=00:04:20.9 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=200       realdt=4.244236e-12 timeNow=9.914723e-10 date=Thu Jun 18 18:41:38 2026 elapsed=00:04:21.8 walldt= 0.9s mem=160MB
+ +++ Writing Gnuplot file(s) 0t0004
+ +++ Writing Povray file(s) povframe0004
+ +++ Wrote restart file(s) rs0002
+cycle=201       realdt=5.093083e-12 timeNow=9.965654e-10 date=Thu Jun 18 18:41:39 2026 elapsed=00:04:23.2 walldt= 1.5s mem=160MB
+cycle=202       realdt=6.111700e-12 timeNow=1.002677e-09 date=Thu Jun 18 18:41:40 2026 elapsed=00:04:24.2 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=203       realdt=7.334040e-12 timeNow=1.010011e-09 date=Thu Jun 18 18:41:41 2026 elapsed=00:04:25.2 walldt= 1.0s mem=160MB
+cycle=204       realdt=8.800848e-12 timeNow=1.018812e-09 date=Thu Jun 18 18:41:42 2026 elapsed=00:04:26.3 walldt= 1.1s mem=160MB
+cycle=205       realdt=1.056102e-11 timeNow=1.029373e-09 date=Thu Jun 18 18:41:43 2026 elapsed=00:04:27.4 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=206       realdt=6.336611e-12 timeNow=1.035710e-09 date=Thu Jun 18 18:41:45 2026 elapsed=00:04:29.3 walldt= 2.0s mem=160MB
+cycle=207       realdt=6.336611e-12 timeNow=1.042046e-09 date=Thu Jun 18 18:41:46 2026 elapsed=00:04:30.4 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=208       realdt=3.801966e-12 timeNow=1.045848e-09 date=Thu Jun 18 18:41:49 2026 elapsed=00:04:32.7 walldt= 2.4s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=209       realdt=1.900983e-12 timeNow=1.047749e-09 date=Thu Jun 18 18:41:51 2026 elapsed=00:04:34.8 walldt= 2.1s mem=160MB
+cycle=210       realdt=1.900983e-12 timeNow=1.049650e-09 date=Thu Jun 18 18:41:52 2026 elapsed=00:04:35.9 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=211       realdt=2.281180e-12 timeNow=1.051931e-09 date=Thu Jun 18 18:41:53 2026 elapsed=00:04:36.9 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=212       realdt=2.737416e-12 timeNow=1.054669e-09 date=Thu Jun 18 18:41:54 2026 elapsed=00:04:38.0 walldt= 1.1s mem=160MB
+cycle=213       realdt=3.284899e-12 timeNow=1.057954e-09 date=Thu Jun 18 18:41:55 2026 elapsed=00:04:38.8 walldt= 0.8s mem=160MB
+cycle=214       realdt=3.941879e-12 timeNow=1.061895e-09 date=Thu Jun 18 18:41:56 2026 elapsed=00:04:39.6 walldt= 0.8s mem=160MB
+cycle=215       realdt=4.730254e-12 timeNow=1.066626e-09 date=Thu Jun 18 18:41:57 2026 elapsed=00:04:40.5 walldt= 0.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=216       realdt=5.676305e-12 timeNow=1.072302e-09 date=Thu Jun 18 18:41:57 2026 elapsed=00:04:41.2 walldt= 0.7s mem=160MB
+cycle=217       realdt=6.811566e-12 timeNow=1.079114e-09 date=Thu Jun 18 18:41:58 2026 elapsed=00:04:42.0 walldt= 0.8s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=218       realdt=8.173880e-12 timeNow=1.087287e-09 date=Thu Jun 18 18:41:59 2026 elapsed=00:04:43.1 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=219       realdt=9.808656e-12 timeNow=1.097096e-09 date=Thu Jun 18 18:42:00 2026 elapsed=00:04:44.0 walldt= 0.9s mem=160MB
+cycle=220       realdt=5.885193e-12 timeNow=1.102981e-09 date=Thu Jun 18 18:42:02 2026 elapsed=00:04:46.0 walldt= 2.0s mem=160MB
+cycle=221       realdt=5.885193e-12 timeNow=1.108867e-09 date=Thu Jun 18 18:42:03 2026 elapsed=00:04:46.9 walldt= 0.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=222       realdt=3.531116e-12 timeNow=1.112398e-09 date=Thu Jun 18 18:42:05 2026 elapsed=00:04:48.7 walldt= 1.8s mem=160MB
+cycle=223       realdt=3.531116e-12 timeNow=1.115929e-09 date=Thu Jun 18 18:42:06 2026 elapsed=00:04:49.7 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=224       realdt=4.237339e-12 timeNow=1.120166e-09 date=Thu Jun 18 18:42:07 2026 elapsed=00:04:50.8 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=225       realdt=5.084807e-12 timeNow=1.125251e-09 date=Thu Jun 18 18:42:08 2026 elapsed=00:04:51.8 walldt= 1.0s mem=160MB
+cycle=226       realdt=6.101769e-12 timeNow=1.131353e-09 date=Thu Jun 18 18:42:09 2026 elapsed=00:04:52.8 walldt= 0.9s mem=160MB
+cycle=227       realdt=7.322122e-12 timeNow=1.138675e-09 date=Thu Jun 18 18:42:10 2026 elapsed=00:04:54.0 walldt= 1.2s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=228       realdt=8.786547e-12 timeNow=1.147461e-09 date=Thu Jun 18 18:42:11 2026 elapsed=00:04:55.0 walldt= 1.0s mem=160MB
+cycle=229       realdt=1.054386e-11 timeNow=1.158005e-09 date=Thu Jun 18 18:42:12 2026 elapsed=00:04:56.2 walldt= 1.2s mem=160MB
+cycle=230       realdt=6.326314e-12 timeNow=1.164332e-09 date=Thu Jun 18 18:42:14 2026 elapsed=00:04:58.4 walldt= 2.2s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=231       realdt=3.163157e-12 timeNow=1.167495e-09 date=Thu Jun 18 18:42:16 2026 elapsed=00:05:00.5 walldt= 2.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=232       realdt=3.163157e-12 timeNow=1.170658e-09 date=Thu Jun 18 18:42:17 2026 elapsed=00:05:01.4 walldt= 1.0s mem=160MB
+cycle=233       realdt=3.795788e-12 timeNow=1.174454e-09 date=Thu Jun 18 18:42:18 2026 elapsed=00:05:02.4 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=234       realdt=2.277473e-12 timeNow=1.176731e-09 date=Thu Jun 18 18:42:20 2026 elapsed=00:05:04.2 walldt= 1.8s mem=160MB
+cycle=235       realdt=2.277473e-12 timeNow=1.179009e-09 date=Thu Jun 18 18:42:21 2026 elapsed=00:05:05.1 walldt= 0.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=236       realdt=2.732967e-12 timeNow=1.181742e-09 date=Thu Jun 18 18:42:22 2026 elapsed=00:05:06.1 walldt= 1.0s mem=160MB
+cycle=237       realdt=3.279561e-12 timeNow=1.185021e-09 date=Thu Jun 18 18:42:23 2026 elapsed=00:05:07.2 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=238       realdt=3.935473e-12 timeNow=1.188957e-09 date=Thu Jun 18 18:42:24 2026 elapsed=00:05:08.3 walldt= 1.1s mem=160MB
+cycle=239       realdt=4.722568e-12 timeNow=1.193679e-09 date=Thu Jun 18 18:42:25 2026 elapsed=00:05:09.4 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=240       realdt=2.833541e-12 timeNow=1.196513e-09 date=Thu Jun 18 18:42:28 2026 elapsed=00:05:11.6 walldt= 2.2s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=241       realdt=2.833541e-12 timeNow=1.199346e-09 date=Thu Jun 18 18:42:29 2026 elapsed=00:05:12.9 walldt= 1.3s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=242       realdt=1.700124e-12 timeNow=1.201046e-09 date=Thu Jun 18 18:42:31 2026 elapsed=00:05:15.1 walldt= 2.2s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=243       realdt=1.700124e-12 timeNow=1.202746e-09 date=Thu Jun 18 18:42:32 2026 elapsed=00:05:16.1 walldt= 1.0s mem=160MB
+cycle=244       realdt=2.040149e-12 timeNow=1.204787e-09 date=Thu Jun 18 18:42:33 2026 elapsed=00:05:17.0 walldt= 1.0s mem=160MB
+cycle=245       realdt=2.448179e-12 timeNow=1.207235e-09 date=Thu Jun 18 18:42:34 2026 elapsed=00:05:18.1 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=246       realdt=2.937815e-12 timeNow=1.210173e-09 date=Thu Jun 18 18:42:35 2026 elapsed=00:05:18.7 walldt= 0.7s mem=160MB
+cycle=247       realdt=3.525378e-12 timeNow=1.213698e-09 date=Thu Jun 18 18:42:36 2026 elapsed=00:05:19.9 walldt= 1.2s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=248       realdt=4.230454e-12 timeNow=1.217928e-09 date=Thu Jun 18 18:42:37 2026 elapsed=00:05:20.8 walldt= 0.9s mem=160MB
+cycle=249       realdt=5.076544e-12 timeNow=1.223005e-09 date=Thu Jun 18 18:42:38 2026 elapsed=00:05:21.9 walldt= 1.0s mem=160MB
+cycle=250       realdt=6.091853e-12 timeNow=1.229097e-09 date=Thu Jun 18 18:42:39 2026 elapsed=00:05:23.0 walldt= 1.2s mem=160MB
+ +++ Writing Gnuplot file(s) 0t0005
+ +++ Writing Povray file(s) povframe0005
+cycle=251       realdt=7.310224e-12 timeNow=1.236407e-09 date=Thu Jun 18 18:42:40 2026 elapsed=00:05:24.2 walldt= 1.2s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=252       realdt=8.772269e-12 timeNow=1.245179e-09 date=Thu Jun 18 18:42:41 2026 elapsed=00:05:25.3 walldt= 1.1s mem=160MB
+cycle=253       realdt=5.263361e-12 timeNow=1.250443e-09 date=Thu Jun 18 18:42:44 2026 elapsed=00:05:27.6 walldt= 2.3s mem=160MB
+cycle=254       realdt=2.631681e-12 timeNow=1.253074e-09 date=Thu Jun 18 18:42:46 2026 elapsed=00:05:29.8 walldt= 2.2s mem=160MB
+cycle=255       realdt=2.631681e-12 timeNow=1.255706e-09 date=Thu Jun 18 18:42:47 2026 elapsed=00:05:30.8 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=256       realdt=3.158017e-12 timeNow=1.258864e-09 date=Thu Jun 18 18:42:48 2026 elapsed=00:05:31.7 walldt= 0.8s mem=160MB
+cycle=257       realdt=3.789620e-12 timeNow=1.262654e-09 date=Thu Jun 18 18:42:49 2026 elapsed=00:05:32.5 walldt= 0.9s mem=160MB
+cycle=258       realdt=2.273772e-12 timeNow=1.264927e-09 date=Thu Jun 18 18:42:51 2026 elapsed=00:05:34.9 walldt= 2.4s mem=160MB
+cycle=259       realdt=2.273772e-12 timeNow=1.267201e-09 date=Thu Jun 18 18:42:52 2026 elapsed=00:05:36.2 walldt= 1.3s mem=160MB
+cycle=260       realdt=2.728526e-12 timeNow=1.269930e-09 date=Thu Jun 18 18:42:53 2026 elapsed=00:05:37.3 walldt= 1.1s mem=160MB
+cycle=261       realdt=3.274232e-12 timeNow=1.273204e-09 date=Thu Jun 18 18:42:54 2026 elapsed=00:05:38.2 walldt= 0.9s mem=160MB
+cycle=262       realdt=3.929078e-12 timeNow=1.277133e-09 date=Thu Jun 18 18:42:55 2026 elapsed=00:05:39.3 walldt= 1.0s mem=160MB
+cycle=263       realdt=4.714894e-12 timeNow=1.281848e-09 date=Thu Jun 18 18:42:56 2026 elapsed=00:05:40.1 walldt= 0.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=264       realdt=5.657872e-12 timeNow=1.287506e-09 date=Thu Jun 18 18:42:57 2026 elapsed=00:05:41.1 walldt= 1.0s mem=160MB
+cycle=265       realdt=6.789447e-12 timeNow=1.294295e-09 date=Thu Jun 18 18:42:58 2026 elapsed=00:05:42.1 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=266       realdt=8.147336e-12 timeNow=1.302443e-09 date=Thu Jun 18 18:42:59 2026 elapsed=00:05:42.8 walldt= 0.8s mem=160MB
+cycle=267       realdt=9.776803e-12 timeNow=1.312219e-09 date=Thu Jun 18 18:43:00 2026 elapsed=00:05:43.8 walldt= 1.0s mem=160MB
+cycle=268       realdt=1.173216e-11 timeNow=1.323952e-09 date=Thu Jun 18 18:43:01 2026 elapsed=00:05:44.8 walldt= 1.0s mem=160MB
+cycle=269       realdt=7.039298e-12 timeNow=1.330991e-09 date=Thu Jun 18 18:43:03 2026 elapsed=00:05:46.8 walldt= 1.9s mem=160MB
+cycle=270       realdt=3.519649e-12 timeNow=1.334511e-09 date=Thu Jun 18 18:43:05 2026 elapsed=00:05:48.9 walldt= 2.2s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=271       realdt=3.519649e-12 timeNow=1.338030e-09 date=Thu Jun 18 18:43:06 2026 elapsed=00:05:50.1 walldt= 1.2s mem=160MB
+cycle=272       realdt=4.223579e-12 timeNow=1.342254e-09 date=Thu Jun 18 18:43:07 2026 elapsed=00:05:51.3 walldt= 1.2s mem=160MB
+cycle=273       realdt=5.068295e-12 timeNow=1.347322e-09 date=Thu Jun 18 18:43:08 2026 elapsed=00:05:52.3 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=274       realdt=3.040977e-12 timeNow=1.350363e-09 date=Thu Jun 18 18:43:10 2026 elapsed=00:05:54.2 walldt= 1.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=275       realdt=3.040977e-12 timeNow=1.353404e-09 date=Thu Jun 18 18:43:11 2026 elapsed=00:05:55.2 walldt= 1.0s mem=160MB
+cycle=276       realdt=3.649172e-12 timeNow=1.357053e-09 date=Thu Jun 18 18:43:12 2026 elapsed=00:05:56.0 walldt= 0.9s mem=160MB
+cycle=277       realdt=4.379007e-12 timeNow=1.361432e-09 date=Thu Jun 18 18:43:13 2026 elapsed=00:05:57.1 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=278       realdt=5.254808e-12 timeNow=1.366687e-09 date=Thu Jun 18 18:43:14 2026 elapsed=00:05:58.0 walldt= 0.9s mem=160MB
+cycle=279       realdt=6.305770e-12 timeNow=1.372993e-09 date=Thu Jun 18 18:43:15 2026 elapsed=00:05:59.0 walldt= 1.0s mem=160MB
+cycle=280       realdt=3.783462e-12 timeNow=1.376776e-09 date=Thu Jun 18 18:43:17 2026 elapsed=00:06:00.9 walldt= 1.9s mem=160MB
+cycle=281       realdt=3.783462e-12 timeNow=1.380560e-09 date=Thu Jun 18 18:43:18 2026 elapsed=00:06:01.8 walldt= 0.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=282       realdt=2.270077e-12 timeNow=1.382830e-09 date=Thu Jun 18 18:43:20 2026 elapsed=00:06:03.9 walldt= 2.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=283       realdt=2.270077e-12 timeNow=1.385100e-09 date=Thu Jun 18 18:43:21 2026 elapsed=00:06:05.1 walldt= 1.2s mem=160MB
+cycle=284       realdt=2.724093e-12 timeNow=1.387824e-09 date=Thu Jun 18 18:43:22 2026 elapsed=00:06:06.0 walldt= 0.9s mem=160MB
+cycle=285       realdt=3.268911e-12 timeNow=1.391093e-09 date=Thu Jun 18 18:43:23 2026 elapsed=00:06:07.1 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=286       realdt=3.922693e-12 timeNow=1.395016e-09 date=Thu Jun 18 18:43:24 2026 elapsed=00:06:08.0 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=287       realdt=4.707232e-12 timeNow=1.399723e-09 date=Thu Jun 18 18:43:25 2026 elapsed=00:06:09.1 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=288       realdt=2.824339e-12 timeNow=1.402547e-09 date=Thu Jun 18 18:43:27 2026 elapsed=00:06:11.2 walldt= 2.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=289       realdt=2.824339e-12 timeNow=1.405371e-09 date=Thu Jun 18 18:43:28 2026 elapsed=00:06:12.1 walldt= 0.9s mem=160MB
+cycle=290       realdt=1.694603e-12 timeNow=1.407066e-09 date=Thu Jun 18 18:43:30 2026 elapsed=00:06:14.0 walldt= 1.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=291       realdt=1.694603e-12 timeNow=1.408761e-09 date=Thu Jun 18 18:43:31 2026 elapsed=00:06:15.0 walldt= 1.0s mem=160MB
+cycle=292       realdt=2.033524e-12 timeNow=1.410794e-09 date=Thu Jun 18 18:43:32 2026 elapsed=00:06:16.1 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=293       realdt=2.440229e-12 timeNow=1.413234e-09 date=Thu Jun 18 18:43:33 2026 elapsed=00:06:17.2 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=294       realdt=2.928275e-12 timeNow=1.416163e-09 date=Thu Jun 18 18:43:34 2026 elapsed=00:06:18.3 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=295       realdt=3.513930e-12 timeNow=1.419677e-09 date=Thu Jun 18 18:43:36 2026 elapsed=00:06:19.5 walldt= 1.2s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=296       realdt=4.216716e-12 timeNow=1.423893e-09 date=Thu Jun 18 18:43:37 2026 elapsed=00:06:20.5 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=297       realdt=5.060059e-12 timeNow=1.428953e-09 date=Thu Jun 18 18:43:38 2026 elapsed=00:06:21.5 walldt= 1.0s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=298       realdt=6.072071e-12 timeNow=1.435025e-09 date=Thu Jun 18 18:43:39 2026 elapsed=00:06:22.6 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=299       realdt=7.286485e-12 timeNow=1.442312e-09 date=Thu Jun 18 18:43:40 2026 elapsed=00:06:23.6 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=300       realdt=8.743782e-12 timeNow=1.451056e-09 date=Thu Jun 18 18:43:41 2026 elapsed=00:06:24.7 walldt= 1.0s mem=160MB
+ +++ Writing Gnuplot file(s) 0t0006
+ +++ Writing Povray file(s) povframe0006
+ +++ Wrote restart file(s) rs0003
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=301       realdt=5.246269e-12 timeNow=1.456302e-09 date=Thu Jun 18 18:43:43 2026 elapsed=00:06:27.2 walldt= 2.6s mem=160MB
+cycle=302       realdt=5.246269e-12 timeNow=1.461548e-09 date=Thu Jun 18 18:43:44 2026 elapsed=00:06:28.2 walldt= 1.0s mem=160MB
+cycle=303       realdt=6.295523e-12 timeNow=1.467844e-09 date=Thu Jun 18 18:43:45 2026 elapsed=00:06:29.4 walldt= 1.2s mem=160MB
+cycle=304       realdt=1.888657e-12 timeNow=1.469732e-09 date=Thu Jun 18 18:43:49 2026 elapsed=00:06:32.6 walldt= 3.2s mem=160MB
+cycle=305       realdt=1.888657e-12 timeNow=1.471621e-09 date=Thu Jun 18 18:43:50 2026 elapsed=00:06:33.7 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=306       realdt=2.266388e-12 timeNow=1.473887e-09 date=Thu Jun 18 18:43:51 2026 elapsed=00:06:34.6 walldt= 0.9s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=307       realdt=2.719666e-12 timeNow=1.476607e-09 date=Thu Jun 18 18:43:52 2026 elapsed=00:06:35.8 walldt= 1.2s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=308       realdt=3.263599e-12 timeNow=1.479871e-09 date=Thu Jun 18 18:43:53 2026 elapsed=00:06:36.8 walldt= 1.1s mem=160MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=309       realdt=3.916319e-12 timeNow=1.483787e-09 date=Thu Jun 18 18:43:54 2026 elapsed=00:06:37.9 walldt= 1.0s mem=160MB
+cycle=310       realdt=4.699583e-12 timeNow=1.488487e-09 date=Thu Jun 18 18:43:55 2026 elapsed=00:06:38.9 walldt= 1.0s mem=166MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=311       realdt=5.639499e-12 timeNow=1.494126e-09 date=Thu Jun 18 18:43:56 2026 elapsed=00:06:39.9 walldt= 1.0s mem=166MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=312       realdt=6.767399e-12 timeNow=1.500894e-09 date=Thu Jun 18 18:43:57 2026 elapsed=00:06:41.1 walldt= 1.2s mem=166MB
+cycle=313       realdt=8.120879e-12 timeNow=1.509014e-09 date=Thu Jun 18 18:43:58 2026 elapsed=00:06:42.1 walldt= 1.1s mem=166MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=314       realdt=4.872527e-12 timeNow=1.513887e-09 date=Thu Jun 18 18:44:00 2026 elapsed=00:06:44.1 walldt= 1.9s mem=166MB
+cycle=315       realdt=2.436264e-12 timeNow=1.516323e-09 date=Thu Jun 18 18:44:02 2026 elapsed=00:06:46.0 walldt= 1.9s mem=166MB
+cycle=316       realdt=2.436264e-12 timeNow=1.518759e-09 date=Thu Jun 18 18:44:03 2026 elapsed=00:06:47.0 walldt= 1.0s mem=166MB
+cycle=317       realdt=2.923516e-12 timeNow=1.521683e-09 date=Thu Jun 18 18:44:04 2026 elapsed=00:06:48.0 walldt= 1.0s mem=166MB
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+../src/Matrix.cc::Matrix33_Inverse(2232) - noninvertible matrix encountered det=0.000000e+00
+cycle=318       realdt=3.508220e-12 timeNow=1.525191e-09 date=Thu Jun 18 18:44:05 2026 elapsed=00:06:49.1 walldt= 1.0s mem=166MB
+cycle=319       realdt=4.209864e-12 timeNow=1.529401e-09 date=Thu Jun 18 18:44:06 2026 elapsed=00:06:50.2 walldt= 1.1s mem=166MB
+cycle=320       realdt=5.051836e-12 timeNow=1.534453e-09 date=Thu Jun 18 18:44:07 2026 elapsed=00:06:50.9 walldt= 0.7s mem=166MB
+cycle=321       realdt=6.062204e-12 timeNow=1.540515e-09 date=Thu Jun 18 18:44:08 2026 elapsed=00:06:51.8 walldt= 0.9s mem=166MB
+cycle=322       realdt=7.274644e-12 timeNow=1.547790e-09 date=Thu Jun 18 18:44:09 2026 elapsed=00:06:53.0 walldt= 1.2s mem=166MB
+cycle=323       realdt=8.729573e-12 timeNow=1.556519e-09 date=Thu Jun 18 18:44:10 2026 elapsed=00:06:54.1 walldt= 1.1s mem=166MB

@@ -221,10 +221,13 @@ After the run, visualize results:
 
 ```bash
 cd examples/frank_read
-python visualize.py
+python ../utils/visualize.py
 ```
 
 Outputs are written to `examples/frank_read/output/` (PNGs, MP4/MOV animation, properties plots).
+
+The same script works for other examples under `examples/`; it auto-detects the `.ctrl` basename
+and defaults to `<name>_results` and `output/` under the example directory.
 
 ## makefile reference
 

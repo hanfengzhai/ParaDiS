@@ -1,0 +1,646 @@
+***********************************************************
+**** 
+**** Time of run:     Thu Jun 18 16:03:43 2026
+**** Executable name: paradis
+**** Executable path: /home/cai/hzhai/codes/ParaDiS.llnl.git/bin
+**** Working dir:     /home/cai/hzhai/codes/ParaDiS.llnl.git
+**** Execution host:  mc3-gpu-5-3 (Linux 4.18.0-477.10.1.el8_8.x86_64 x86_64)
+**** User name:       hzhai
+**** Number of tasks: 8
+**** Command line:    -d examples/frank_read/frank_read.data examples/frank_read/frank_read.ctrl 
+**** 
+**** Build options enabled...
+****    -DNO_XWINDOW         : X-Windows disabled
+****    -DFIX_PLASTIC_STRAIN : Plastic strain fix enabled
+****    -DTAYLORFMM          : Taylor expansion FMM enabled
+***********************************************************
+Initialize: Parsing control file examples/frank_read/frank_read.ctrl
+Initialize: Control file parsing complete
+Generating uniform domain decomposition.
+chdir successful on all tasks.
++----------------------------------------------------------------------------------------
+| ParaDiS Simulation and control initialization summary
+|
+| MPI and Cell configuration controls
+|
+|   MPI ranks (total)            : 8
+|   MPI geometry                 : 2 x 2 x 2 (xyz)
+|   cell geometry                : 4 x 4 x 4 (xyz)
+|
+| Simulation box and periodic boundary conditions
+|   simulation node count        : 3
+|   simulation box (x)           : [ -17500,+17500 ] (35000b, 10.1um)
+|   simulation box (y)           : [ -17500,+17500 ] (35000b, 10.1um)
+|   simulation box (z)           : [ -17500,+17500 ] (35000b, 10.1um)
+|   burgmag                      : 2.8754e-10
+|
+|   periodic boundary (x)        : periodic
+|   periodic boundary (y)        : periodic
+|   periodic boundary (z)        : periodic
+|
+|   decompType                   : 2
+|   dlb_freq                     : 3
+|   dlb_cycles                   : 0
+|
+| Integration and timestep controls
+|   integrator                   : trapezoid
+|   trapezoid max integrations   : 2
+|
+|   start cycle                  : 0
+|   last  cycle                  : 500
+|
+|   timeNow                      : 0.000000e+00
+|   timeStart                    : 0.000000e+00
+|   timeEnd                      : -1.000000e+00
+|
+|   deltaTT                      : 1.00e-07
+|   maxDT                        : 1.00e-07
+|   dtIncrementFact              : 1.2
+|   dtDecrementFact              : 0.5
+|   dtExponent                   : 4.0
+|
+|   minseg                       : 200.0
+|   maxseg                       : 2000.0
+|   rtol                         : 1.0
+|   rmax                         : 100.0
+|   rc                           : 5.0000
+|   rann                         : 2.0
+|   remesh area (min)            : 4000.0
+|   remesh area (max)            : 874025.4
+|   split multinode freq         : 1
+|   split multinode alpha        : 0.001
+|
+| FMM control parameters
+|   FMM enabled                  : yes
+|   FMM layers                   : 3
+|   FMM mp order                 : 2
+|   FMM expansion                : 5
+|   FMM npoints                  : 3
+|
+| Mobility
+|   mobility law                 : BCC_glide
+|   material type                : BCC
+|
+|   mobility (screw)             : 1.0e+01
+|   mobility (edge )             : 1.0e+01
+|   mobility (climb)             : 1.0e-08
+|   mobility (glide)             : 1.0e+02
+|   mobility (line )             : 1.0e+04
+|
+|   mobility climb junc          : 1.0e+00
+|   mobility split               : 0
+|   mobility climb split         : -1.0e+00
+|
+|   shear velocity               : 3400.0
+|
+|   enforce glide planes         : yes
+|   enable  cross slip           : no
+|
+|   elasticConstantMatrix        : [ +2.59e+11 +1.29e+11 +1.29e+11 +0.00e+00 +0.00e+00 +0.00e+00  
+|                                    +1.29e+11 +2.59e+11 +1.29e+11 +0.00e+00 +0.00e+00 +0.00e+00  
+|                                    +1.29e+11 +1.29e+11 +2.59e+11 +0.00e+00 +0.00e+00 +0.00e+00  
+|                                    +0.00e+00 +0.00e+00 +0.00e+00 +6.49e+10 +0.00e+00 +0.00e+00  
+|                                    +0.00e+00 +0.00e+00 +0.00e+00 +0.00e+00 +6.49e+10 +0.00e+00  
+|                                    +0.00e+00 +0.00e+00 +0.00e+00 +0.00e+00 +0.00e+00 +6.49e+10 ]
+|
+| Simulation parameters
+|   shear modulus                : 6.488424e+10
+|   Young's modulus              : 1.729500e+11
+|   poisson ratio                : 0.332753
+|   ecrit                        : 0.000100
+|   c/a                          : 1.568000
+|   temp                         : 600.00 K
+|   pressure                     : 0.0000 MPa
+|   load type                    : 0
+|   applied stress               : [ +0.0e+00 +0.0e+00 +5.0e+08 +0.0e+00 +0.0e+00 +0.0e+00 ]
+|   eRate                        : +1.000000
+|   edotdir                      : [ +0.0000 +0.0000 +1.0000 ]
+|   rotMatrix                    : [ +1.0000 +0.0000 +0.0000  
+|                                    +0.0000 +1.0000 +0.0000  
+|                                    +0.0000 +0.0000 +1.0000 ]
+|
+| GPU and OpenMP acceleration
+|   gpu_enabled                  : no
+|
++----------------------------------------------------------------------------------------
+ParadisInit finished
+cycle=1         realdt=1.000000e-07 timeNow=1.000000e-07 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.0 walldt= 0.0s mem=143MB
+cycle=2         realdt=1.000000e-07 timeNow=2.000000e-07 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.0 walldt= 0.0s mem=144MB
+cycle=3         realdt=1.000000e-07 timeNow=3.000000e-07 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.0 walldt= 0.0s mem=144MB
+cycle=4         realdt=1.000000e-07 timeNow=4.000000e-07 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.1 walldt= 0.0s mem=144MB
+cycle=5         realdt=1.000000e-07 timeNow=5.000000e-07 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.1 walldt= 0.0s mem=144MB
+cycle=6         realdt=1.000000e-07 timeNow=6.000000e-07 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.1 walldt= 0.0s mem=144MB
+cycle=7         realdt=1.000000e-07 timeNow=7.000000e-07 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.1 walldt= 0.0s mem=144MB
+cycle=8         realdt=1.000000e-07 timeNow=8.000000e-07 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.1 walldt= 0.0s mem=144MB
+cycle=9         realdt=1.000000e-07 timeNow=9.000000e-07 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.1 walldt= 0.0s mem=144MB
+cycle=10        realdt=1.000000e-07 timeNow=1.000000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.2 walldt= 0.0s mem=145MB
+cycle=11        realdt=1.000000e-07 timeNow=1.100000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.2 walldt= 0.1s mem=145MB
+cycle=12        realdt=5.000000e-08 timeNow=1.150000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.3 walldt= 0.0s mem=145MB
+cycle=13        realdt=5.000000e-08 timeNow=1.200000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.3 walldt= 0.0s mem=145MB
+cycle=14        realdt=5.000000e-08 timeNow=1.250000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.3 walldt= 0.0s mem=145MB
+cycle=15        realdt=5.000000e-08 timeNow=1.300000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.3 walldt= 0.0s mem=145MB
+cycle=16        realdt=5.000000e-08 timeNow=1.350000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.3 walldt= 0.0s mem=145MB
+cycle=17        realdt=5.000000e-08 timeNow=1.400000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.3 walldt= 0.0s mem=145MB
+cycle=18        realdt=5.000000e-08 timeNow=1.450000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.4 walldt= 0.0s mem=145MB
+cycle=19        realdt=5.000000e-08 timeNow=1.500000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.4 walldt= 0.0s mem=145MB
+cycle=20        realdt=5.000000e-08 timeNow=1.550000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.4 walldt= 0.0s mem=145MB
+cycle=21        realdt=5.000000e-08 timeNow=1.600000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.4 walldt= 0.0s mem=145MB
+cycle=22        realdt=5.000000e-08 timeNow=1.650000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.4 walldt= 0.0s mem=146MB
+cycle=23        realdt=5.000000e-08 timeNow=1.700000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.5 walldt= 0.0s mem=146MB
+cycle=24        realdt=5.000000e-08 timeNow=1.750000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.5 walldt= 0.0s mem=146MB
+cycle=25        realdt=5.000000e-08 timeNow=1.800000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.5 walldt= 0.0s mem=146MB
+cycle=26        realdt=5.000000e-08 timeNow=1.850000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.5 walldt= 0.0s mem=146MB
+cycle=27        realdt=5.000000e-08 timeNow=1.900000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.5 walldt= 0.0s mem=146MB
+cycle=28        realdt=5.000000e-08 timeNow=1.950000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.6 walldt= 0.0s mem=146MB
+cycle=29        realdt=5.000000e-08 timeNow=2.000000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.6 walldt= 0.0s mem=146MB
+cycle=30        realdt=5.000000e-08 timeNow=2.050000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.6 walldt= 0.0s mem=146MB
+cycle=31        realdt=5.000000e-08 timeNow=2.100000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.6 walldt= 0.0s mem=146MB
+cycle=32        realdt=5.000000e-08 timeNow=2.150000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.6 walldt= 0.0s mem=146MB
+cycle=33        realdt=5.000000e-08 timeNow=2.200000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.7 walldt= 0.0s mem=147MB
+cycle=34        realdt=5.000000e-08 timeNow=2.250000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.7 walldt= 0.0s mem=147MB
+cycle=35        realdt=5.000000e-08 timeNow=2.300000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.7 walldt= 0.0s mem=147MB
+cycle=36        realdt=5.000000e-08 timeNow=2.350000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.7 walldt= 0.0s mem=147MB
+cycle=37        realdt=5.000000e-08 timeNow=2.400000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.7 walldt= 0.0s mem=147MB
+cycle=38        realdt=5.000000e-08 timeNow=2.450000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.7 walldt= 0.0s mem=147MB
+cycle=39        realdt=5.000000e-08 timeNow=2.500000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.8 walldt= 0.0s mem=147MB
+cycle=40        realdt=5.000000e-08 timeNow=2.550000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.8 walldt= 0.0s mem=147MB
+cycle=41        realdt=5.000000e-08 timeNow=2.600000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.8 walldt= 0.0s mem=147MB
+cycle=42        realdt=5.000000e-08 timeNow=2.650000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.8 walldt= 0.0s mem=147MB
+cycle=43        realdt=5.000000e-08 timeNow=2.700000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.9 walldt= 0.0s mem=147MB
+cycle=44        realdt=5.000000e-08 timeNow=2.750000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.9 walldt= 0.0s mem=147MB
+cycle=45        realdt=5.000000e-08 timeNow=2.800000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.9 walldt= 0.0s mem=147MB
+cycle=46        realdt=5.000000e-08 timeNow=2.850000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.9 walldt= 0.0s mem=147MB
+cycle=47        realdt=5.000000e-08 timeNow=2.900000e-06 date=Thu Jun 18 16:03:44 2026 elapsed=00:00:00.9 walldt= 0.0s mem=147MB
+cycle=48        realdt=5.000000e-08 timeNow=2.950000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.0 walldt= 0.0s mem=147MB
+cycle=49        realdt=5.000000e-08 timeNow=3.000000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.0 walldt= 0.0s mem=147MB
+cycle=50        realdt=5.000000e-08 timeNow=3.050000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.0 walldt= 0.0s mem=147MB
+cycle=51        realdt=5.000000e-08 timeNow=3.100000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.0 walldt= 0.0s mem=147MB
+cycle=52        realdt=5.000000e-08 timeNow=3.150000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.0 walldt= 0.0s mem=147MB
+cycle=53        realdt=5.000000e-08 timeNow=3.200000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.1 walldt= 0.0s mem=147MB
+cycle=54        realdt=5.000000e-08 timeNow=3.250000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.1 walldt= 0.0s mem=147MB
+cycle=55        realdt=5.000000e-08 timeNow=3.300000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.1 walldt= 0.0s mem=147MB
+cycle=56        realdt=5.000000e-08 timeNow=3.350000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.1 walldt= 0.0s mem=147MB
+cycle=57        realdt=5.000000e-08 timeNow=3.400000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.1 walldt= 0.0s mem=147MB
+cycle=58        realdt=5.000000e-08 timeNow=3.450000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.1 walldt= 0.0s mem=147MB
+cycle=59        realdt=5.000000e-08 timeNow=3.500000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.2 walldt= 0.0s mem=147MB
+cycle=60        realdt=5.000000e-08 timeNow=3.550000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.2 walldt= 0.0s mem=147MB
+cycle=61        realdt=5.000000e-08 timeNow=3.600000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.2 walldt= 0.0s mem=147MB
+cycle=62        realdt=5.000000e-08 timeNow=3.650000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.2 walldt= 0.0s mem=147MB
+cycle=63        realdt=5.000000e-08 timeNow=3.700000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.2 walldt= 0.0s mem=147MB
+cycle=64        realdt=5.000000e-08 timeNow=3.750000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.3 walldt= 0.0s mem=147MB
+cycle=65        realdt=5.000000e-08 timeNow=3.800000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.3 walldt= 0.0s mem=147MB
+cycle=66        realdt=5.000000e-08 timeNow=3.850000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.3 walldt= 0.0s mem=147MB
+cycle=67        realdt=5.000000e-08 timeNow=3.900000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.3 walldt= 0.0s mem=147MB
+cycle=68        realdt=5.000000e-08 timeNow=3.950000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.3 walldt= 0.0s mem=147MB
+cycle=69        realdt=5.000000e-08 timeNow=4.000000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.4 walldt= 0.0s mem=148MB
+cycle=70        realdt=5.000000e-08 timeNow=4.050000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.4 walldt= 0.0s mem=148MB
+cycle=71        realdt=5.000000e-08 timeNow=4.100000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.4 walldt= 0.0s mem=148MB
+cycle=72        realdt=5.000000e-08 timeNow=4.150000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.4 walldt= 0.0s mem=148MB
+cycle=73        realdt=5.000000e-08 timeNow=4.200000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.4 walldt= 0.0s mem=148MB
+cycle=74        realdt=5.000000e-08 timeNow=4.250000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.5 walldt= 0.0s mem=148MB
+cycle=75        realdt=5.000000e-08 timeNow=4.300000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.5 walldt= 0.0s mem=148MB
+cycle=76        realdt=5.000000e-08 timeNow=4.350000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.5 walldt= 0.0s mem=148MB
+cycle=77        realdt=2.500000e-08 timeNow=4.375000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.5 walldt= 0.0s mem=148MB
+cycle=78        realdt=2.500000e-08 timeNow=4.400000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.5 walldt= 0.0s mem=148MB
+cycle=79        realdt=2.500000e-08 timeNow=4.425000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.5 walldt= 0.0s mem=148MB
+cycle=80        realdt=2.500000e-08 timeNow=4.450000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.6 walldt= 0.0s mem=148MB
+cycle=81        realdt=3.000000e-08 timeNow=4.480000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.6 walldt= 0.0s mem=148MB
+cycle=82        realdt=3.600000e-08 timeNow=4.516000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.6 walldt= 0.0s mem=148MB
+cycle=83        realdt=3.600000e-08 timeNow=4.552000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.6 walldt= 0.0s mem=148MB
+cycle=84        realdt=3.600000e-08 timeNow=4.588000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.6 walldt= 0.0s mem=148MB
+cycle=85        realdt=3.600000e-08 timeNow=4.624000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.7 walldt= 0.0s mem=148MB
+cycle=86        realdt=3.600000e-08 timeNow=4.660000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.7 walldt= 0.0s mem=148MB
+cycle=87        realdt=3.600000e-08 timeNow=4.696000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.7 walldt= 0.0s mem=148MB
+cycle=88        realdt=3.600000e-08 timeNow=4.732000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.7 walldt= 0.0s mem=148MB
+cycle=89        realdt=3.600000e-08 timeNow=4.768000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.7 walldt= 0.0s mem=148MB
+cycle=90        realdt=3.600000e-08 timeNow=4.804000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.8 walldt= 0.0s mem=148MB
+cycle=91        realdt=3.600000e-08 timeNow=4.840000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.8 walldt= 0.0s mem=148MB
+cycle=92        realdt=3.600000e-08 timeNow=4.876000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.8 walldt= 0.0s mem=148MB
+cycle=93        realdt=3.600000e-08 timeNow=4.912000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.8 walldt= 0.0s mem=148MB
+cycle=94        realdt=3.600000e-08 timeNow=4.948000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.8 walldt= 0.0s mem=148MB
+cycle=95        realdt=3.600000e-08 timeNow=4.984000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.9 walldt= 0.0s mem=148MB
+cycle=96        realdt=3.600000e-08 timeNow=5.020000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.9 walldt= 0.0s mem=148MB
+cycle=97        realdt=3.600000e-08 timeNow=5.056000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.9 walldt= 0.0s mem=148MB
+cycle=98        realdt=3.600000e-08 timeNow=5.092000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.9 walldt= 0.0s mem=148MB
+cycle=99        realdt=3.600000e-08 timeNow=5.128000e-06 date=Thu Jun 18 16:03:45 2026 elapsed=00:00:01.9 walldt= 0.0s mem=148MB
+cycle=100       realdt=3.600000e-08 timeNow=5.164000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.0 walldt= 0.0s mem=148MB
+ +++ Writing Gnuplot file(s) 0t0001
+ +++ Writing Povray file(s) povframe0001
+ +++ Wrote restart file(s) rs0001
+cycle=101       realdt=3.600000e-08 timeNow=5.200000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.0 walldt= 0.1s mem=148MB
+cycle=102       realdt=3.600000e-08 timeNow=5.236000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.0 walldt= 0.0s mem=148MB
+cycle=103       realdt=3.600000e-08 timeNow=5.272000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.1 walldt= 0.0s mem=148MB
+cycle=104       realdt=3.600000e-08 timeNow=5.308000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.1 walldt= 0.0s mem=148MB
+cycle=105       realdt=3.600000e-08 timeNow=5.344000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.1 walldt= 0.0s mem=148MB
+cycle=106       realdt=3.600000e-08 timeNow=5.380000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.1 walldt= 0.0s mem=148MB
+cycle=107       realdt=3.600000e-08 timeNow=5.416000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.1 walldt= 0.0s mem=148MB
+cycle=108       realdt=3.600000e-08 timeNow=5.452000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.2 walldt= 0.0s mem=148MB
+cycle=109       realdt=1.800000e-08 timeNow=5.470000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.2 walldt= 0.0s mem=148MB
+cycle=110       realdt=4.500000e-09 timeNow=5.474500e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.2 walldt= 0.0s mem=148MB
+cycle=111       realdt=4.500000e-09 timeNow=5.479000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.2 walldt= 0.0s mem=148MB
+cycle=112       realdt=4.500000e-09 timeNow=5.483500e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.2 walldt= 0.0s mem=148MB
+cycle=113       realdt=2.250000e-09 timeNow=5.485750e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.3 walldt= 0.0s mem=148MB
+cycle=114       realdt=2.250000e-09 timeNow=5.488000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.3 walldt= 0.0s mem=148MB
+cycle=115       realdt=2.250000e-09 timeNow=5.490250e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.3 walldt= 0.0s mem=148MB
+cycle=116       realdt=2.250000e-09 timeNow=5.492500e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.3 walldt= 0.0s mem=148MB
+cycle=117       realdt=2.250000e-09 timeNow=5.494750e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.3 walldt= 0.0s mem=148MB
+cycle=118       realdt=2.250000e-09 timeNow=5.497000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.3 walldt= 0.0s mem=148MB
+cycle=119       realdt=2.250000e-09 timeNow=5.499250e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.4 walldt= 0.0s mem=148MB
+cycle=120       realdt=2.250000e-09 timeNow=5.501500e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.4 walldt= 0.0s mem=148MB
+cycle=121       realdt=1.125000e-09 timeNow=5.502625e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.4 walldt= 0.0s mem=148MB
+cycle=122       realdt=1.125000e-09 timeNow=5.503750e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.4 walldt= 0.0s mem=148MB
+cycle=123       realdt=1.125000e-09 timeNow=5.504875e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.4 walldt= 0.0s mem=148MB
+cycle=124       realdt=1.125000e-09 timeNow=5.506000e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.5 walldt= 0.0s mem=148MB
+cycle=125       realdt=1.350000e-09 timeNow=5.507350e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.5 walldt= 0.0s mem=148MB
+cycle=126       realdt=1.620000e-09 timeNow=5.508970e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.5 walldt= 0.0s mem=148MB
+cycle=127       realdt=1.944000e-09 timeNow=5.510914e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.5 walldt= 0.0s mem=148MB
+cycle=128       realdt=2.332800e-09 timeNow=5.513247e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.5 walldt= 0.0s mem=148MB
+cycle=129       realdt=2.799360e-09 timeNow=5.516046e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.6 walldt= 0.0s mem=148MB
+cycle=130       realdt=3.359232e-09 timeNow=5.519405e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.6 walldt= 0.0s mem=148MB
+cycle=131       realdt=4.031078e-09 timeNow=5.523436e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.6 walldt= 0.0s mem=148MB
+cycle=132       realdt=4.837294e-09 timeNow=5.528274e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.6 walldt= 0.0s mem=148MB
+cycle=133       realdt=5.804753e-09 timeNow=5.534079e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.6 walldt= 0.0s mem=148MB
+cycle=134       realdt=6.965703e-09 timeNow=5.541044e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.7 walldt= 0.0s mem=148MB
+cycle=135       realdt=8.358844e-09 timeNow=5.549403e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.7 walldt= 0.0s mem=148MB
+cycle=136       realdt=1.003061e-08 timeNow=5.559434e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.7 walldt= 0.0s mem=148MB
+cycle=137       realdt=1.003061e-08 timeNow=5.569464e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.7 walldt= 0.0s mem=148MB
+cycle=138       realdt=1.003061e-08 timeNow=5.579495e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.7 walldt= 0.0s mem=148MB
+cycle=139       realdt=1.003061e-08 timeNow=5.589526e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.8 walldt= 0.0s mem=148MB
+cycle=140       realdt=1.003061e-08 timeNow=5.599556e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.8 walldt= 0.0s mem=148MB
+cycle=141       realdt=1.003061e-08 timeNow=5.609587e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.8 walldt= 0.0s mem=148MB
+cycle=142       realdt=1.003061e-08 timeNow=5.619617e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.8 walldt= 0.0s mem=148MB
+cycle=143       realdt=1.003061e-08 timeNow=5.629648e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.8 walldt= 0.0s mem=148MB
+cycle=144       realdt=1.003061e-08 timeNow=5.639679e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.9 walldt= 0.0s mem=148MB
+cycle=145       realdt=1.003061e-08 timeNow=5.649709e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.9 walldt= 0.0s mem=148MB
+cycle=146       realdt=1.003061e-08 timeNow=5.659740e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.9 walldt= 0.0s mem=148MB
+cycle=147       realdt=1.003061e-08 timeNow=5.669770e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.9 walldt= 0.0s mem=148MB
+cycle=148       realdt=1.003061e-08 timeNow=5.679801e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.9 walldt= 0.0s mem=148MB
+cycle=149       realdt=1.003061e-08 timeNow=5.689832e-06 date=Thu Jun 18 16:03:46 2026 elapsed=00:00:02.9 walldt= 0.0s mem=148MB
+cycle=150       realdt=1.003061e-08 timeNow=5.699862e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.0 walldt= 0.0s mem=148MB
+cycle=151       realdt=1.003061e-08 timeNow=5.709893e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.0 walldt= 0.0s mem=148MB
+cycle=152       realdt=1.003061e-08 timeNow=5.719923e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.0 walldt= 0.0s mem=148MB
+cycle=153       realdt=1.003061e-08 timeNow=5.729954e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.0 walldt= 0.0s mem=148MB
+cycle=154       realdt=1.003061e-08 timeNow=5.739985e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.0 walldt= 0.0s mem=148MB
+cycle=155       realdt=1.003061e-08 timeNow=5.750015e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.1 walldt= 0.0s mem=148MB
+cycle=156       realdt=1.003061e-08 timeNow=5.760046e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.1 walldt= 0.0s mem=148MB
+cycle=157       realdt=1.003061e-08 timeNow=5.770077e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.1 walldt= 0.0s mem=148MB
+cycle=158       realdt=1.003061e-08 timeNow=5.780107e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.1 walldt= 0.0s mem=148MB
+cycle=159       realdt=1.003061e-08 timeNow=5.790138e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.1 walldt= 0.0s mem=148MB
+cycle=160       realdt=1.003061e-08 timeNow=5.800168e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.2 walldt= 0.0s mem=148MB
+cycle=161       realdt=1.003061e-08 timeNow=5.810199e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.2 walldt= 0.0s mem=148MB
+cycle=162       realdt=1.003061e-08 timeNow=5.820230e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.2 walldt= 0.0s mem=148MB
+cycle=163       realdt=1.003061e-08 timeNow=5.830260e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.2 walldt= 0.0s mem=148MB
+cycle=164       realdt=1.203674e-08 timeNow=5.842297e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.2 walldt= 0.0s mem=148MB
+cycle=165       realdt=1.444408e-08 timeNow=5.856741e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.3 walldt= 0.0s mem=148MB
+cycle=166       realdt=1.733290e-08 timeNow=5.874074e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.3 walldt= 0.0s mem=148MB
+cycle=167       realdt=2.079948e-08 timeNow=5.894873e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.3 walldt= 0.0s mem=148MB
+cycle=168       realdt=2.079948e-08 timeNow=5.915673e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.3 walldt= 0.0s mem=148MB
+cycle=169       realdt=2.079948e-08 timeNow=5.936472e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.3 walldt= 0.0s mem=148MB
+cycle=170       realdt=2.079948e-08 timeNow=5.957272e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.4 walldt= 0.0s mem=148MB
+cycle=171       realdt=2.079948e-08 timeNow=5.978071e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.4 walldt= 0.0s mem=148MB
+cycle=172       realdt=2.079948e-08 timeNow=5.998871e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.4 walldt= 0.0s mem=148MB
+cycle=173       realdt=2.079948e-08 timeNow=6.019670e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.4 walldt= 0.0s mem=148MB
+cycle=174       realdt=2.079948e-08 timeNow=6.040470e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.4 walldt= 0.0s mem=148MB
+cycle=175       realdt=2.079948e-08 timeNow=6.061269e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.5 walldt= 0.0s mem=148MB
+cycle=176       realdt=2.079948e-08 timeNow=6.082069e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.5 walldt= 0.0s mem=148MB
+cycle=177       realdt=2.079948e-08 timeNow=6.102868e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.5 walldt= 0.0s mem=148MB
+cycle=178       realdt=2.079948e-08 timeNow=6.123668e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.5 walldt= 0.0s mem=148MB
+cycle=179       realdt=2.079948e-08 timeNow=6.144467e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.5 walldt= 0.0s mem=148MB
+cycle=180       realdt=2.079948e-08 timeNow=6.165267e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.5 walldt= 0.0s mem=148MB
+cycle=181       realdt=2.079948e-08 timeNow=6.186066e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.6 walldt= 0.0s mem=148MB
+cycle=182       realdt=2.495937e-08 timeNow=6.211026e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.6 walldt= 0.0s mem=148MB
+cycle=183       realdt=2.495937e-08 timeNow=6.235985e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.6 walldt= 0.0s mem=148MB
+cycle=184       realdt=2.495937e-08 timeNow=6.260944e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.6 walldt= 0.0s mem=148MB
+cycle=185       realdt=2.495937e-08 timeNow=6.285904e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.6 walldt= 0.0s mem=148MB
+cycle=186       realdt=2.495937e-08 timeNow=6.310863e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.7 walldt= 0.0s mem=148MB
+cycle=187       realdt=2.495937e-08 timeNow=6.335822e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.7 walldt= 0.0s mem=148MB
+cycle=188       realdt=2.495937e-08 timeNow=6.360782e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.7 walldt= 0.0s mem=148MB
+cycle=189       realdt=2.495937e-08 timeNow=6.385741e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.7 walldt= 0.0s mem=148MB
+cycle=190       realdt=2.495937e-08 timeNow=6.410701e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.7 walldt= 0.0s mem=148MB
+cycle=191       realdt=2.495937e-08 timeNow=6.435660e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.8 walldt= 0.0s mem=148MB
+cycle=192       realdt=2.495937e-08 timeNow=6.460619e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.8 walldt= 0.0s mem=148MB
+cycle=193       realdt=2.495937e-08 timeNow=6.485579e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.8 walldt= 0.0s mem=148MB
+cycle=194       realdt=2.495937e-08 timeNow=6.510538e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.8 walldt= 0.0s mem=148MB
+cycle=195       realdt=2.495937e-08 timeNow=6.535497e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.8 walldt= 0.0s mem=148MB
+cycle=196       realdt=2.495937e-08 timeNow=6.560457e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.9 walldt= 0.0s mem=148MB
+cycle=197       realdt=2.495937e-08 timeNow=6.585416e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.9 walldt= 0.0s mem=148MB
+cycle=198       realdt=2.495937e-08 timeNow=6.610376e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.9 walldt= 0.0s mem=148MB
+cycle=199       realdt=2.495937e-08 timeNow=6.635335e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.9 walldt= 0.0s mem=148MB
+cycle=200       realdt=2.495937e-08 timeNow=6.660294e-06 date=Thu Jun 18 16:03:47 2026 elapsed=00:00:03.9 walldt= 0.0s mem=148MB
+ +++ Writing Gnuplot file(s) 0t0002
+ +++ Writing Povray file(s) povframe0002
+ +++ Wrote restart file(s) rs0002
+cycle=201       realdt=2.495937e-08 timeNow=6.685254e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.0 walldt= 0.1s mem=149MB
+cycle=202       realdt=2.495937e-08 timeNow=6.710213e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.0 walldt= 0.0s mem=149MB
+cycle=203       realdt=2.995125e-08 timeNow=6.740164e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.0 walldt= 0.0s mem=149MB
+cycle=204       realdt=2.995125e-08 timeNow=6.770116e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.1 walldt= 0.0s mem=149MB
+cycle=205       realdt=2.995125e-08 timeNow=6.800067e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.1 walldt= 0.0s mem=149MB
+cycle=206       realdt=2.995125e-08 timeNow=6.830018e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.1 walldt= 0.0s mem=149MB
+cycle=207       realdt=2.995125e-08 timeNow=6.859969e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.1 walldt= 0.0s mem=149MB
+cycle=208       realdt=2.995125e-08 timeNow=6.889921e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.1 walldt= 0.0s mem=149MB
+cycle=209       realdt=2.995125e-08 timeNow=6.919872e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.2 walldt= 0.0s mem=149MB
+cycle=210       realdt=2.995125e-08 timeNow=6.949823e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.2 walldt= 0.0s mem=149MB
+cycle=211       realdt=2.995125e-08 timeNow=6.979774e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.2 walldt= 0.0s mem=149MB
+cycle=212       realdt=2.995125e-08 timeNow=7.009726e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.2 walldt= 0.0s mem=149MB
+cycle=213       realdt=2.995125e-08 timeNow=7.039677e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.2 walldt= 0.0s mem=149MB
+cycle=214       realdt=2.995125e-08 timeNow=7.069628e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.3 walldt= 0.0s mem=149MB
+cycle=215       realdt=2.995125e-08 timeNow=7.099579e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.3 walldt= 0.0s mem=149MB
+cycle=216       realdt=3.594150e-08 timeNow=7.135521e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.3 walldt= 0.0s mem=149MB
+cycle=217       realdt=3.594150e-08 timeNow=7.171462e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.3 walldt= 0.0s mem=149MB
+cycle=218       realdt=3.594150e-08 timeNow=7.207404e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.3 walldt= 0.0s mem=149MB
+cycle=219       realdt=3.594150e-08 timeNow=7.243345e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.3 walldt= 0.0s mem=149MB
+cycle=220       realdt=4.312980e-08 timeNow=7.286475e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.4 walldt= 0.0s mem=149MB
+cycle=221       realdt=4.312980e-08 timeNow=7.329605e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.4 walldt= 0.0s mem=149MB
+cycle=222       realdt=4.312980e-08 timeNow=7.372735e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.4 walldt= 0.0s mem=149MB
+cycle=223       realdt=4.312980e-08 timeNow=7.415864e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.4 walldt= 0.0s mem=149MB
+cycle=224       realdt=4.312980e-08 timeNow=7.458994e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.5 walldt= 0.0s mem=149MB
+cycle=225       realdt=4.312980e-08 timeNow=7.502124e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.5 walldt= 0.0s mem=149MB
+cycle=226       realdt=4.312980e-08 timeNow=7.545254e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.5 walldt= 0.0s mem=149MB
+cycle=227       realdt=4.312980e-08 timeNow=7.588384e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.5 walldt= 0.0s mem=149MB
+cycle=228       realdt=4.312980e-08 timeNow=7.631513e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.5 walldt= 0.0s mem=149MB
+cycle=229       realdt=4.312980e-08 timeNow=7.674643e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.5 walldt= 0.0s mem=149MB
+cycle=230       realdt=4.312980e-08 timeNow=7.717773e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.6 walldt= 0.0s mem=149MB
+cycle=231       realdt=4.312980e-08 timeNow=7.760903e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.6 walldt= 0.0s mem=149MB
+cycle=232       realdt=4.312980e-08 timeNow=7.804033e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.6 walldt= 0.0s mem=149MB
+cycle=233       realdt=4.312980e-08 timeNow=7.847162e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.6 walldt= 0.0s mem=149MB
+cycle=234       realdt=4.312980e-08 timeNow=7.890292e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.7 walldt= 0.0s mem=149MB
+cycle=235       realdt=4.312980e-08 timeNow=7.933422e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.7 walldt= 0.0s mem=149MB
+cycle=236       realdt=4.312980e-08 timeNow=7.976552e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.7 walldt= 0.0s mem=149MB
+cycle=237       realdt=4.312980e-08 timeNow=8.019682e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.7 walldt= 0.0s mem=149MB
+cycle=238       realdt=4.312980e-08 timeNow=8.062811e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.7 walldt= 0.0s mem=149MB
+cycle=239       realdt=4.312980e-08 timeNow=8.105941e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.7 walldt= 0.0s mem=149MB
+cycle=240       realdt=4.312980e-08 timeNow=8.149071e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.8 walldt= 0.0s mem=149MB
+cycle=241       realdt=4.312980e-08 timeNow=8.192201e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.8 walldt= 0.0s mem=149MB
+cycle=242       realdt=4.312980e-08 timeNow=8.235331e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.8 walldt= 0.0s mem=149MB
+cycle=243       realdt=4.312980e-08 timeNow=8.278460e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.8 walldt= 0.0s mem=149MB
+cycle=244       realdt=4.312980e-08 timeNow=8.321590e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.9 walldt= 0.0s mem=149MB
+cycle=245       realdt=2.156490e-08 timeNow=8.343155e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.9 walldt= 0.0s mem=149MB
+cycle=246       realdt=1.078245e-08 timeNow=8.353938e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.9 walldt= 0.0s mem=149MB
+cycle=247       realdt=5.391225e-09 timeNow=8.359329e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.9 walldt= 0.0s mem=149MB
+cycle=248       realdt=5.391225e-09 timeNow=8.364720e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:04.9 walldt= 0.0s mem=149MB
+cycle=249       realdt=2.695612e-09 timeNow=8.367416e-06 date=Thu Jun 18 16:03:48 2026 elapsed=00:00:05.0 walldt= 0.0s mem=149MB
+cycle=250       realdt=1.347806e-09 timeNow=8.368763e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.0 walldt= 0.0s mem=149MB
+cycle=251       realdt=1.347806e-09 timeNow=8.370111e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.0 walldt= 0.0s mem=149MB
+cycle=252       realdt=3.369516e-10 timeNow=8.370448e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.0 walldt= 0.0s mem=149MB
+cycle=253       realdt=3.369516e-10 timeNow=8.370785e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.0 walldt= 0.0s mem=149MB
+cycle=254       realdt=1.684758e-10 timeNow=8.370954e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.1 walldt= 0.0s mem=149MB
+cycle=255       realdt=8.423789e-11 timeNow=8.371038e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.1 walldt= 0.0s mem=149MB
+cycle=256       realdt=8.423789e-11 timeNow=8.371122e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.1 walldt= 0.0s mem=149MB
+cycle=257       realdt=1.010855e-10 timeNow=8.371223e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.1 walldt= 0.0s mem=149MB
+cycle=258       realdt=1.010855e-10 timeNow=8.371324e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.1 walldt= 0.0s mem=149MB
+cycle=259       realdt=1.213026e-10 timeNow=8.371446e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.2 walldt= 0.0s mem=149MB
+cycle=260       realdt=1.213026e-10 timeNow=8.371567e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.2 walldt= 0.0s mem=149MB
+cycle=261       realdt=1.455631e-10 timeNow=8.371712e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.2 walldt= 0.0s mem=149MB
+cycle=262       realdt=1.746757e-10 timeNow=8.371887e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.2 walldt= 0.0s mem=149MB
+cycle=263       realdt=2.096108e-10 timeNow=8.372097e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.2 walldt= 0.0s mem=149MB
+cycle=264       realdt=2.515330e-10 timeNow=8.372348e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.3 walldt= 0.0s mem=149MB
+cycle=265       realdt=3.018396e-10 timeNow=8.372650e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.3 walldt= 0.0s mem=149MB
+cycle=266       realdt=3.622075e-10 timeNow=8.373012e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.3 walldt= 0.0s mem=149MB
+cycle=267       realdt=4.346490e-10 timeNow=8.373447e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.3 walldt= 0.0s mem=149MB
+cycle=268       realdt=5.215788e-10 timeNow=8.373969e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.3 walldt= 0.0s mem=149MB
+cycle=269       realdt=6.258946e-10 timeNow=8.374594e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.3 walldt= 0.0s mem=149MB
+cycle=270       realdt=6.258946e-10 timeNow=8.375220e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.4 walldt= 0.0s mem=149MB
+cycle=271       realdt=7.510735e-10 timeNow=8.375971e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.4 walldt= 0.0s mem=149MB
+cycle=272       realdt=9.012882e-10 timeNow=8.376873e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.4 walldt= 0.0s mem=149MB
+cycle=273       realdt=9.012882e-10 timeNow=8.377774e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.4 walldt= 0.0s mem=149MB
+cycle=274       realdt=9.012882e-10 timeNow=8.378675e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.5 walldt= 0.0s mem=149MB
+cycle=275       realdt=1.081546e-09 timeNow=8.379757e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.5 walldt= 0.0s mem=149MB
+cycle=276       realdt=1.297855e-09 timeNow=8.381055e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.5 walldt= 0.0s mem=149MB
+cycle=277       realdt=1.557426e-09 timeNow=8.382612e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.5 walldt= 0.0s mem=149MB
+cycle=278       realdt=1.868911e-09 timeNow=8.384481e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.5 walldt= 0.0s mem=149MB
+cycle=279       realdt=2.242693e-09 timeNow=8.386724e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.5 walldt= 0.0s mem=149MB
+cycle=280       realdt=2.691232e-09 timeNow=8.389415e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.6 walldt= 0.0s mem=149MB
+cycle=281       realdt=3.229479e-09 timeNow=8.392644e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.6 walldt= 0.0s mem=149MB
+cycle=282       realdt=3.875374e-09 timeNow=8.396520e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.6 walldt= 0.0s mem=149MB
+cycle=283       realdt=4.650449e-09 timeNow=8.401170e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.6 walldt= 0.0s mem=149MB
+cycle=284       realdt=5.580539e-09 timeNow=8.406751e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.6 walldt= 0.0s mem=149MB
+cycle=285       realdt=6.696647e-09 timeNow=8.413447e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.7 walldt= 0.0s mem=149MB
+cycle=286       realdt=3.348323e-09 timeNow=8.416796e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.7 walldt= 0.0s mem=149MB
+cycle=287       realdt=3.348323e-09 timeNow=8.420144e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.7 walldt= 0.0s mem=149MB
+cycle=288       realdt=1.674162e-09 timeNow=8.421818e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.7 walldt= 0.0s mem=149MB
+cycle=289       realdt=1.674162e-09 timeNow=8.423492e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.7 walldt= 0.0s mem=149MB
+cycle=290       realdt=1.674162e-09 timeNow=8.425167e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.8 walldt= 0.0s mem=149MB
+cycle=291       realdt=2.008994e-09 timeNow=8.427176e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.8 walldt= 0.0s mem=149MB
+cycle=292       realdt=2.410793e-09 timeNow=8.429586e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.8 walldt= 0.0s mem=149MB
+cycle=293       realdt=2.892951e-09 timeNow=8.432479e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.8 walldt= 0.0s mem=149MB
+cycle=294       realdt=2.892951e-09 timeNow=8.435372e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.8 walldt= 0.0s mem=149MB
+cycle=295       realdt=2.892951e-09 timeNow=8.438265e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.9 walldt= 0.0s mem=149MB
+cycle=296       realdt=2.892951e-09 timeNow=8.441158e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.9 walldt= 0.0s mem=149MB
+cycle=297       realdt=2.892951e-09 timeNow=8.444051e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.9 walldt= 0.0s mem=149MB
+cycle=298       realdt=2.892951e-09 timeNow=8.446944e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.9 walldt= 0.0s mem=149MB
+cycle=299       realdt=2.892951e-09 timeNow=8.449837e-06 date=Thu Jun 18 16:03:49 2026 elapsed=00:00:05.9 walldt= 0.0s mem=149MB
+cycle=300       realdt=2.892951e-09 timeNow=8.452730e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.0 walldt= 0.0s mem=149MB
+ +++ Writing Gnuplot file(s) 0t0003
+ +++ Writing Povray file(s) povframe0003
+ +++ Wrote restart file(s) rs0003
+cycle=301       realdt=2.892951e-09 timeNow=8.455623e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.0 walldt= 0.1s mem=149MB
+cycle=302       realdt=3.471542e-09 timeNow=8.459094e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.0 walldt= 0.0s mem=149MB
+cycle=303       realdt=4.165850e-09 timeNow=8.463260e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.1 walldt= 0.0s mem=149MB
+cycle=304       realdt=4.165850e-09 timeNow=8.467426e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.1 walldt= 0.0s mem=149MB
+cycle=305       realdt=4.165850e-09 timeNow=8.471592e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.1 walldt= 0.0s mem=149MB
+cycle=306       realdt=4.165850e-09 timeNow=8.475758e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.1 walldt= 0.0s mem=149MB
+cycle=307       realdt=4.165850e-09 timeNow=8.479924e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.1 walldt= 0.0s mem=149MB
+cycle=308       realdt=4.999020e-09 timeNow=8.484923e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.2 walldt= 0.0s mem=149MB
+cycle=309       realdt=5.998824e-09 timeNow=8.490922e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.2 walldt= 0.0s mem=149MB
+cycle=310       realdt=7.198589e-09 timeNow=8.498120e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.2 walldt= 0.0s mem=149MB
+cycle=311       realdt=8.638307e-09 timeNow=8.506758e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.2 walldt= 0.0s mem=149MB
+cycle=312       realdt=8.638307e-09 timeNow=8.515397e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.2 walldt= 0.0s mem=149MB
+cycle=313       realdt=8.638307e-09 timeNow=8.524035e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.3 walldt= 0.0s mem=149MB
+cycle=314       realdt=8.638307e-09 timeNow=8.532673e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.3 walldt= 0.0s mem=149MB
+cycle=315       realdt=8.638307e-09 timeNow=8.541312e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.3 walldt= 0.0s mem=149MB
+cycle=316       realdt=8.638307e-09 timeNow=8.549950e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.3 walldt= 0.0s mem=149MB
+cycle=317       realdt=8.638307e-09 timeNow=8.558588e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.3 walldt= 0.0s mem=149MB
+cycle=318       realdt=8.638307e-09 timeNow=8.567227e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.3 walldt= 0.0s mem=149MB
+cycle=319       realdt=8.638307e-09 timeNow=8.575865e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.4 walldt= 0.0s mem=149MB
+cycle=320       realdt=8.638307e-09 timeNow=8.584503e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.4 walldt= 0.0s mem=149MB
+cycle=321       realdt=8.638307e-09 timeNow=8.593142e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.4 walldt= 0.0s mem=149MB
+cycle=322       realdt=8.638307e-09 timeNow=8.601780e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.4 walldt= 0.0s mem=149MB
+cycle=323       realdt=8.638307e-09 timeNow=8.610418e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.5 walldt= 0.0s mem=149MB
+cycle=324       realdt=8.638307e-09 timeNow=8.619056e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.5 walldt= 0.0s mem=149MB
+cycle=325       realdt=8.638307e-09 timeNow=8.627695e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.5 walldt= 0.0s mem=149MB
+cycle=326       realdt=8.638307e-09 timeNow=8.636333e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.5 walldt= 0.0s mem=149MB
+cycle=327       realdt=8.638307e-09 timeNow=8.644971e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.5 walldt= 0.0s mem=149MB
+cycle=328       realdt=8.638307e-09 timeNow=8.653610e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.5 walldt= 0.0s mem=149MB
+cycle=329       realdt=8.638307e-09 timeNow=8.662248e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.6 walldt= 0.0s mem=149MB
+cycle=330       realdt=8.638307e-09 timeNow=8.670886e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.6 walldt= 0.0s mem=149MB
+cycle=331       realdt=8.638307e-09 timeNow=8.679525e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.6 walldt= 0.0s mem=149MB
+cycle=332       realdt=8.638307e-09 timeNow=8.688163e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.6 walldt= 0.0s mem=149MB
+cycle=333       realdt=8.638307e-09 timeNow=8.696801e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.7 walldt= 0.0s mem=149MB
+cycle=334       realdt=8.638307e-09 timeNow=8.705440e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.7 walldt= 0.0s mem=149MB
+cycle=335       realdt=8.638307e-09 timeNow=8.714078e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.7 walldt= 0.0s mem=149MB
+cycle=336       realdt=8.638307e-09 timeNow=8.722716e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.7 walldt= 0.0s mem=149MB
+cycle=337       realdt=8.638307e-09 timeNow=8.731354e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.7 walldt= 0.0s mem=149MB
+cycle=338       realdt=8.638307e-09 timeNow=8.739993e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.7 walldt= 0.0s mem=149MB
+cycle=339       realdt=1.036597e-08 timeNow=8.750359e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.8 walldt= 0.0s mem=149MB
+cycle=340       realdt=1.036597e-08 timeNow=8.760725e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.8 walldt= 0.0s mem=149MB
+cycle=341       realdt=1.036597e-08 timeNow=8.771091e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.8 walldt= 0.0s mem=149MB
+cycle=342       realdt=1.036597e-08 timeNow=8.781457e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.8 walldt= 0.0s mem=149MB
+cycle=343       realdt=1.036597e-08 timeNow=8.791823e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.9 walldt= 0.0s mem=149MB
+cycle=344       realdt=1.036597e-08 timeNow=8.802189e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.9 walldt= 0.0s mem=149MB
+cycle=345       realdt=1.036597e-08 timeNow=8.812555e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.9 walldt= 0.0s mem=149MB
+cycle=346       realdt=1.036597e-08 timeNow=8.822920e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.9 walldt= 0.0s mem=149MB
+cycle=347       realdt=1.036597e-08 timeNow=8.833286e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.9 walldt= 0.0s mem=149MB
+cycle=348       realdt=1.036597e-08 timeNow=8.843652e-06 date=Thu Jun 18 16:03:50 2026 elapsed=00:00:06.9 walldt= 0.0s mem=149MB
+cycle=349       realdt=1.036597e-08 timeNow=8.854018e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.0 walldt= 0.0s mem=149MB
+cycle=350       realdt=1.036597e-08 timeNow=8.864384e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.0 walldt= 0.0s mem=149MB
+cycle=351       realdt=1.036597e-08 timeNow=8.874750e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.0 walldt= 0.0s mem=149MB
+cycle=352       realdt=1.036597e-08 timeNow=8.885116e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.0 walldt= 0.0s mem=149MB
+cycle=353       realdt=1.036597e-08 timeNow=8.895482e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.0 walldt= 0.0s mem=149MB
+cycle=354       realdt=1.036597e-08 timeNow=8.905848e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.1 walldt= 0.0s mem=149MB
+cycle=355       realdt=1.036597e-08 timeNow=8.916214e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.1 walldt= 0.0s mem=149MB
+cycle=356       realdt=1.036597e-08 timeNow=8.926580e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.1 walldt= 0.0s mem=149MB
+cycle=357       realdt=1.036597e-08 timeNow=8.936946e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.1 walldt= 0.0s mem=149MB
+cycle=358       realdt=1.036597e-08 timeNow=8.947312e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.1 walldt= 0.0s mem=149MB
+cycle=359       realdt=1.036597e-08 timeNow=8.957678e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.2 walldt= 0.0s mem=149MB
+cycle=360       realdt=1.036597e-08 timeNow=8.968044e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.2 walldt= 0.0s mem=149MB
+cycle=361       realdt=1.036597e-08 timeNow=8.978410e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.2 walldt= 0.0s mem=149MB
+cycle=362       realdt=1.036597e-08 timeNow=8.988776e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.2 walldt= 0.0s mem=149MB
+cycle=363       realdt=1.036597e-08 timeNow=8.999142e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.2 walldt= 0.0s mem=149MB
+cycle=364       realdt=1.243916e-08 timeNow=9.011581e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.3 walldt= 0.0s mem=149MB
+cycle=365       realdt=1.243916e-08 timeNow=9.024020e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.3 walldt= 0.0s mem=149MB
+cycle=366       realdt=1.243916e-08 timeNow=9.036459e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.3 walldt= 0.0s mem=149MB
+cycle=367       realdt=1.243916e-08 timeNow=9.048899e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.3 walldt= 0.0s mem=149MB
+cycle=368       realdt=1.243916e-08 timeNow=9.061338e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.3 walldt= 0.0s mem=149MB
+cycle=369       realdt=1.492699e-08 timeNow=9.076265e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.4 walldt= 0.0s mem=149MB
+cycle=370       realdt=1.492699e-08 timeNow=9.091192e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.4 walldt= 0.0s mem=149MB
+cycle=371       realdt=1.492699e-08 timeNow=9.106119e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.4 walldt= 0.0s mem=149MB
+cycle=372       realdt=1.492699e-08 timeNow=9.121046e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.4 walldt= 0.0s mem=149MB
+cycle=373       realdt=1.492699e-08 timeNow=9.135973e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.4 walldt= 0.0s mem=149MB
+cycle=374       realdt=1.492699e-08 timeNow=9.150900e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.5 walldt= 0.0s mem=149MB
+cycle=375       realdt=1.492699e-08 timeNow=9.165827e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.5 walldt= 0.0s mem=149MB
+cycle=376       realdt=1.492699e-08 timeNow=9.180754e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.5 walldt= 0.0s mem=149MB
+cycle=377       realdt=1.492699e-08 timeNow=9.195681e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.5 walldt= 0.0s mem=149MB
+cycle=378       realdt=1.492699e-08 timeNow=9.210608e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.5 walldt= 0.0s mem=149MB
+cycle=379       realdt=1.492699e-08 timeNow=9.225535e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.6 walldt= 0.0s mem=149MB
+cycle=380       realdt=1.492699e-08 timeNow=9.240462e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.6 walldt= 0.0s mem=149MB
+cycle=381       realdt=1.492699e-08 timeNow=9.255389e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.6 walldt= 0.0s mem=149MB
+cycle=382       realdt=1.492699e-08 timeNow=9.270316e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.6 walldt= 0.0s mem=149MB
+cycle=383       realdt=1.492699e-08 timeNow=9.285243e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.6 walldt= 0.0s mem=149MB
+cycle=384       realdt=1.492699e-08 timeNow=9.300170e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.7 walldt= 0.0s mem=149MB
+cycle=385       realdt=1.492699e-08 timeNow=9.315097e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.7 walldt= 0.0s mem=149MB
+cycle=386       realdt=1.492699e-08 timeNow=9.330024e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.7 walldt= 0.0s mem=149MB
+cycle=387       realdt=1.492699e-08 timeNow=9.344951e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.7 walldt= 0.0s mem=149MB
+cycle=388       realdt=1.492699e-08 timeNow=9.359878e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.7 walldt= 0.0s mem=149MB
+cycle=389       realdt=1.492699e-08 timeNow=9.374805e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.8 walldt= 0.0s mem=149MB
+cycle=390       realdt=1.492699e-08 timeNow=9.389732e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.8 walldt= 0.0s mem=149MB
+cycle=391       realdt=1.492699e-08 timeNow=9.404659e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.8 walldt= 0.0s mem=149MB
+cycle=392       realdt=1.492699e-08 timeNow=9.419586e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.8 walldt= 0.0s mem=149MB
+cycle=393       realdt=1.492699e-08 timeNow=9.434513e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.8 walldt= 0.0s mem=149MB
+cycle=394       realdt=7.463497e-09 timeNow=9.441976e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.9 walldt= 0.0s mem=149MB
+cycle=395       realdt=3.731748e-09 timeNow=9.445708e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.9 walldt= 0.0s mem=149MB
+cycle=396       realdt=1.865874e-09 timeNow=9.447574e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.9 walldt= 0.0s mem=149MB
+cycle=397       realdt=1.865874e-09 timeNow=9.449440e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.9 walldt= 0.0s mem=149MB
+cycle=398       realdt=9.329371e-10 timeNow=9.450373e-06 date=Thu Jun 18 16:03:51 2026 elapsed=00:00:07.9 walldt= 0.0s mem=149MB
+cycle=399       realdt=9.329371e-10 timeNow=9.451305e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.0 walldt= 0.0s mem=149MB
+cycle=400       realdt=9.329371e-10 timeNow=9.452238e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.0 walldt= 0.0s mem=149MB
+ +++ Writing Gnuplot file(s) 0t0004
+ +++ Writing Povray file(s) povframe0004
+ +++ Wrote restart file(s) rs0004
+cycle=401       realdt=1.119525e-09 timeNow=9.453358e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.0 walldt= 0.1s mem=149MB
+cycle=402       realdt=1.343429e-09 timeNow=9.454701e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.1 walldt= 0.0s mem=149MB
+cycle=403       realdt=1.612115e-09 timeNow=9.456313e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.1 walldt= 0.0s mem=149MB
+cycle=404       realdt=1.934538e-09 timeNow=9.458248e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.1 walldt= 0.0s mem=149MB
+cycle=405       realdt=1.934538e-09 timeNow=9.460183e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.1 walldt= 0.0s mem=149MB
+cycle=406       realdt=1.934538e-09 timeNow=9.462117e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.1 walldt= 0.0s mem=149MB
+cycle=407       realdt=2.321446e-09 timeNow=9.464439e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.2 walldt= 0.0s mem=149MB
+cycle=408       realdt=2.785735e-09 timeNow=9.467224e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.2 walldt= 0.0s mem=149MB
+cycle=409       realdt=2.785735e-09 timeNow=9.470010e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.2 walldt= 0.0s mem=149MB
+cycle=410       realdt=2.785735e-09 timeNow=9.472796e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.2 walldt= 0.0s mem=149MB
+cycle=411       realdt=3.342882e-09 timeNow=9.476139e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.2 walldt= 0.0s mem=149MB
+cycle=412       realdt=4.011459e-09 timeNow=9.480150e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.3 walldt= 0.0s mem=149MB
+cycle=413       realdt=4.011459e-09 timeNow=9.484162e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.3 walldt= 0.0s mem=149MB
+cycle=414       realdt=4.011459e-09 timeNow=9.488173e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.3 walldt= 0.0s mem=149MB
+cycle=415       realdt=4.011459e-09 timeNow=9.492184e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.3 walldt= 0.0s mem=149MB
+cycle=416       realdt=4.011459e-09 timeNow=9.496196e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.3 walldt= 0.0s mem=149MB
+cycle=417       realdt=4.011459e-09 timeNow=9.500207e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.3 walldt= 0.0s mem=149MB
+cycle=418       realdt=4.813751e-09 timeNow=9.505021e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.4 walldt= 0.0s mem=149MB
+cycle=419       realdt=5.776501e-09 timeNow=9.510798e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.4 walldt= 0.0s mem=149MB
+cycle=420       realdt=6.931801e-09 timeNow=9.517729e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.4 walldt= 0.0s mem=149MB
+cycle=421       realdt=6.931801e-09 timeNow=9.524661e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.4 walldt= 0.0s mem=149MB
+cycle=422       realdt=6.931801e-09 timeNow=9.531593e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.5 walldt= 0.0s mem=149MB
+cycle=423       realdt=6.931801e-09 timeNow=9.538525e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.5 walldt= 0.0s mem=149MB
+cycle=424       realdt=6.931801e-09 timeNow=9.545457e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.5 walldt= 0.0s mem=149MB
+cycle=425       realdt=6.931801e-09 timeNow=9.552388e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.5 walldt= 0.0s mem=149MB
+cycle=426       realdt=6.931801e-09 timeNow=9.559320e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.5 walldt= 0.0s mem=149MB
+cycle=427       realdt=6.931801e-09 timeNow=9.566252e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.5 walldt= 0.0s mem=149MB
+cycle=428       realdt=6.931801e-09 timeNow=9.573184e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.6 walldt= 0.0s mem=149MB
+cycle=429       realdt=6.931801e-09 timeNow=9.580116e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.6 walldt= 0.0s mem=149MB
+cycle=430       realdt=6.931801e-09 timeNow=9.587047e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.6 walldt= 0.0s mem=149MB
+cycle=431       realdt=6.931801e-09 timeNow=9.593979e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.6 walldt= 0.0s mem=149MB
+cycle=432       realdt=6.931801e-09 timeNow=9.600911e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.6 walldt= 0.0s mem=149MB
+cycle=433       realdt=6.931801e-09 timeNow=9.607843e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.7 walldt= 0.0s mem=149MB
+cycle=434       realdt=6.931801e-09 timeNow=9.614775e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.7 walldt= 0.0s mem=149MB
+cycle=435       realdt=6.931801e-09 timeNow=9.621706e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.7 walldt= 0.0s mem=149MB
+cycle=436       realdt=6.931801e-09 timeNow=9.628638e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.7 walldt= 0.0s mem=149MB
+cycle=437       realdt=6.931801e-09 timeNow=9.635570e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.7 walldt= 0.0s mem=149MB
+cycle=438       realdt=8.318161e-09 timeNow=9.643888e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.8 walldt= 0.0s mem=149MB
+cycle=439       realdt=8.318161e-09 timeNow=9.652206e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.8 walldt= 0.0s mem=149MB
+cycle=440       realdt=9.981793e-09 timeNow=9.662188e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.8 walldt= 0.0s mem=149MB
+cycle=441       realdt=1.197815e-08 timeNow=9.674166e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.8 walldt= 0.0s mem=149MB
+cycle=442       realdt=1.197815e-08 timeNow=9.686144e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.8 walldt= 0.0s mem=149MB
+cycle=443       realdt=1.197815e-08 timeNow=9.698123e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.9 walldt= 0.0s mem=149MB
+cycle=444       realdt=1.197815e-08 timeNow=9.710101e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.9 walldt= 0.0s mem=149MB
+cycle=445       realdt=1.197815e-08 timeNow=9.722079e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.9 walldt= 0.0s mem=149MB
+cycle=446       realdt=1.197815e-08 timeNow=9.734057e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.9 walldt= 0.0s mem=149MB
+cycle=447       realdt=1.197815e-08 timeNow=9.746035e-06 date=Thu Jun 18 16:03:52 2026 elapsed=00:00:08.9 walldt= 0.0s mem=149MB
+cycle=448       realdt=1.197815e-08 timeNow=9.758013e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.0 walldt= 0.0s mem=149MB
+cycle=449       realdt=1.197815e-08 timeNow=9.769992e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.0 walldt= 0.0s mem=149MB
+cycle=450       realdt=1.197815e-08 timeNow=9.781970e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.0 walldt= 0.0s mem=149MB
+cycle=451       realdt=1.197815e-08 timeNow=9.793948e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.0 walldt= 0.0s mem=149MB
+cycle=452       realdt=1.197815e-08 timeNow=9.805926e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.0 walldt= 0.0s mem=149MB
+cycle=453       realdt=1.197815e-08 timeNow=9.817904e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.1 walldt= 0.0s mem=149MB
+cycle=454       realdt=1.197815e-08 timeNow=9.829882e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.1 walldt= 0.0s mem=149MB
+cycle=455       realdt=1.197815e-08 timeNow=9.841860e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.1 walldt= 0.0s mem=149MB
+cycle=456       realdt=1.437378e-08 timeNow=9.856234e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.1 walldt= 0.0s mem=149MB
+cycle=457       realdt=1.724854e-08 timeNow=9.873483e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.1 walldt= 0.0s mem=149MB
+cycle=458       realdt=1.724854e-08 timeNow=9.890731e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.2 walldt= 0.0s mem=149MB
+cycle=459       realdt=1.724854e-08 timeNow=9.907980e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.2 walldt= 0.0s mem=149MB
+cycle=460       realdt=1.724854e-08 timeNow=9.925228e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.2 walldt= 0.0s mem=149MB
+cycle=461       realdt=1.724854e-08 timeNow=9.942477e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.2 walldt= 0.0s mem=149MB
+cycle=462       realdt=1.724854e-08 timeNow=9.959725e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.2 walldt= 0.0s mem=149MB
+cycle=463       realdt=2.069825e-08 timeNow=9.980424e-06 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.3 walldt= 0.0s mem=149MB
+cycle=464       realdt=2.069825e-08 timeNow=1.000112e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.3 walldt= 0.0s mem=149MB
+cycle=465       realdt=2.069825e-08 timeNow=1.002182e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.3 walldt= 0.0s mem=149MB
+cycle=466       realdt=2.069825e-08 timeNow=1.004252e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.3 walldt= 0.0s mem=149MB
+cycle=467       realdt=2.069825e-08 timeNow=1.006322e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.3 walldt= 0.0s mem=149MB
+cycle=468       realdt=2.069825e-08 timeNow=1.008391e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.4 walldt= 0.0s mem=149MB
+cycle=469       realdt=2.069825e-08 timeNow=1.010461e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.4 walldt= 0.0s mem=149MB
+cycle=470       realdt=2.069825e-08 timeNow=1.012531e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.4 walldt= 0.0s mem=149MB
+cycle=471       realdt=2.069825e-08 timeNow=1.014601e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.4 walldt= 0.0s mem=149MB
+cycle=472       realdt=2.069825e-08 timeNow=1.016671e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.4 walldt= 0.0s mem=149MB
+cycle=473       realdt=2.069825e-08 timeNow=1.018741e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.5 walldt= 0.0s mem=149MB
+cycle=474       realdt=2.069825e-08 timeNow=1.020810e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.5 walldt= 0.0s mem=149MB
+cycle=475       realdt=2.069825e-08 timeNow=1.022880e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.5 walldt= 0.0s mem=149MB
+cycle=476       realdt=2.069825e-08 timeNow=1.024950e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.5 walldt= 0.0s mem=149MB
+cycle=477       realdt=2.069825e-08 timeNow=1.027020e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.5 walldt= 0.0s mem=149MB
+cycle=478       realdt=2.069825e-08 timeNow=1.029090e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.5 walldt= 0.0s mem=149MB
+cycle=479       realdt=2.069825e-08 timeNow=1.031160e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.6 walldt= 0.0s mem=149MB
+cycle=480       realdt=2.069825e-08 timeNow=1.033229e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.6 walldt= 0.0s mem=149MB
+cycle=481       realdt=2.069825e-08 timeNow=1.035299e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.6 walldt= 0.0s mem=149MB
+cycle=482       realdt=2.069825e-08 timeNow=1.037369e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.6 walldt= 0.0s mem=149MB
+cycle=483       realdt=2.069825e-08 timeNow=1.039439e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.7 walldt= 0.0s mem=149MB
+cycle=484       realdt=2.069825e-08 timeNow=1.041509e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.7 walldt= 0.0s mem=149MB
+cycle=485       realdt=2.069825e-08 timeNow=1.043579e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.7 walldt= 0.0s mem=149MB
+cycle=486       realdt=2.069825e-08 timeNow=1.045648e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.7 walldt= 0.0s mem=149MB
+cycle=487       realdt=2.069825e-08 timeNow=1.047718e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.7 walldt= 0.0s mem=149MB
+cycle=488       realdt=2.069825e-08 timeNow=1.049788e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.8 walldt= 0.0s mem=149MB
+cycle=489       realdt=2.069825e-08 timeNow=1.051858e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.8 walldt= 0.0s mem=149MB
+cycle=490       realdt=2.069825e-08 timeNow=1.053928e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.8 walldt= 0.0s mem=149MB
+cycle=491       realdt=2.069825e-08 timeNow=1.055997e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.8 walldt= 0.0s mem=149MB
+cycle=492       realdt=2.483790e-08 timeNow=1.058481e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.8 walldt= 0.0s mem=149MB
+cycle=493       realdt=2.483790e-08 timeNow=1.060965e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.9 walldt= 0.0s mem=149MB
+cycle=494       realdt=2.483790e-08 timeNow=1.063449e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.9 walldt= 0.0s mem=149MB
+cycle=495       realdt=2.483790e-08 timeNow=1.065933e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.9 walldt= 0.0s mem=149MB
+cycle=496       realdt=2.483790e-08 timeNow=1.068416e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.9 walldt= 0.0s mem=149MB
+cycle=497       realdt=2.483790e-08 timeNow=1.070900e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:09.9 walldt= 0.0s mem=149MB
+cycle=498       realdt=2.483790e-08 timeNow=1.073384e-05 date=Thu Jun 18 16:03:53 2026 elapsed=00:00:10.0 walldt= 0.0s mem=149MB
+cycle=499       realdt=2.483790e-08 timeNow=1.075868e-05 date=Thu Jun 18 16:03:54 2026 elapsed=00:00:10.0 walldt= 0.0s mem=149MB
+cycle=500       realdt=2.483790e-08 timeNow=1.078352e-05 date=Thu Jun 18 16:03:54 2026 elapsed=00:00:10.0 walldt= 0.0s mem=149MB
+ +++ Writing Gnuplot file(s) 0t0005
+ +++ Writing Povray file(s) povframe0005
+ +++ Wrote restart file(s) rs0005
+ParadisFinish
+ +++ Writing Gnuplot file(s) gnuplot.final
+ +++ Writing Povray file(s) povframe.final
+ +++ Wrote restart file(s) restart.cn
+Estimated memory usage (proc 0): 152716k bytes
