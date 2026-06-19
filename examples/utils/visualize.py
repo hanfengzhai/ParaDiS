@@ -526,8 +526,9 @@ class ParadiSVisualizer:
             text = label
         if self.example_name == "glissile_loop":
             text += " ((001) view)"
-        ax.text2D(0.05, 0.95, text, transform=ax.transAxes,
-                  fontsize=FONT_SIZE, va="top", ha="left")
+        ax.text2D(0.5, 0.02, text, transform=ax.transAxes,
+                  fontsize=FONT_SIZE, va="bottom", ha="center",
+                  bbox=dict(facecolor="white", edgecolor="none", alpha=0.85, pad=2.0))
 
     def _write_summary(self, frame_files, box_edges):
         if not frame_files:
@@ -544,7 +545,7 @@ class ParadiSVisualizer:
             final_cycle = self._frame_cycle(summary_final)
         fig = plt.figure(figsize=(12, 5.5))
         gs = gridspec.GridSpec(1, 2, figure=fig, left=0.04, right=0.94,
-                               bottom=0.08, top=0.94, wspace=0.28)
+                               bottom=0.12, top=0.96, wspace=0.28)
         for ax_idx, (frame_path, label, cycle) in enumerate(
                 ((initial_path, "Initial", init_cycle),
                  (summary_final, "Final", final_cycle))):
