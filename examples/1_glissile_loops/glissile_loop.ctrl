@@ -5,11 +5,11 @@
 #  Mobility and stress match that test; loop plane normal is (001).
 #
 #  Run from the ParaDiS repository root:
-#    python examples/glissile_loops/make_loop_data.py
-#    mpirun -n 8 ./bin/paradis -d examples/glissile_loops/glissile_loop.data \
-#                           examples/glissile_loops/glissile_loop.ctrl
+#    python examples/1_glissile_loops/make_loop_data.py
+#    mpirun -n 8 ./bin/paradis -d examples/1_glissile_loops/glissile_loop.data \
+#                           examples/1_glissile_loops/glissile_loop.ctrl
 #
-dirname = "examples/glissile_loops/glissile_loop_results"
+dirname = "examples/1_glissile_loops/glissile_loop_results"
 
 numXdoms = 2
 numYdoms = 2

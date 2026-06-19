@@ -6,9 +6,9 @@
 #  Mobility is restricted to glide planes via BCC_glide.
 #
 #  Run from the ParaDiS repository root:
-#    ./bin/paradis -d examples/frank_read/frank_read.data examples/frank_read/frank_read.ctrl
+#    ./bin/paradis -d examples/2_frank_read/frank_read.data examples/2_frank_read/frank_read.ctrl
 #
-dirname = "examples/frank_read/frank_read_results"
+dirname = "examples/2_frank_read/frank_read_results"
 
 numXdoms = 2
 numYdoms = 2

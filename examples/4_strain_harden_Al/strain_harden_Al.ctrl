@@ -6,9 +6,9 @@
 #
 #  Run from the ParaDiS repository root:
 #    mpirun -n 8 ./bin/paradis -d tests/Al.data \
-#                           examples/strain_harden_Al/strain_harden_Al.ctrl
+#                           examples/4_strain_harden_Al/strain_harden_Al.ctrl
 #
-dirname = "examples/strain_harden_Al/strain_harden_Al_results"
+dirname = "examples/4_strain_harden_Al/strain_harden_Al_results"
 
 numXdoms = 2
 numYdoms = 2

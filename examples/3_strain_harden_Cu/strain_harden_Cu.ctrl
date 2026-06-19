@@ -6,9 +6,9 @@
 #
 #  Run from the ParaDiS repository root:
 #    mpirun -n 8 ./bin/paradis -d tests/Copper.data \
-#                           examples/strain_harden_Cu/strain_harden_Cu.ctrl
+#                           examples/3_strain_harden_Cu/strain_harden_Cu.ctrl
 #
-dirname = "examples/strain_harden_Cu/strain_harden_Cu_results"
+dirname = "examples/3_strain_harden_Cu/strain_harden_Cu_results"
 
 numXdoms = 2
 numYdoms = 2

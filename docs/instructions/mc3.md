@@ -133,11 +133,11 @@ srun -N 1 -n 8 -p cpu \
 
 ## Step 8 — Run the Frank-Read GPU example (optional)
 
-The example under `examples/frank_read/` uses elastic FMM forces and
+The example under `examples/2_frank_read/` uses elastic FMM forces and
 `BCC_glide` mobility. Submit from the example directory:
 
 ```bash
-cd /path/to/ParaDiS.llnl.git/examples/frank_read
+cd /path/to/ParaDiS.llnl.git/examples/2_frank_read
 sbatch submit_gpu.sh    # GPU (gpu-ampere)
 # sbatch submit_cpu.sh  # CPU partition
 ```
@@ -150,7 +150,7 @@ tail -f frank_read.<jobid>.out
 ```
 
 The submit script builds with `GPU_ENABLED=ON` on the GPU node if `bin/paradis`
-is missing. **Submit from `examples/frank_read/`** so Slurm sets
+is missing. **Submit from `examples/2_frank_read/`** so Slurm sets
 `SLURM_SUBMIT_DIR` correctly (Slurm copies the script to `/var/spool/`; using
 `$0` to find the repo will fail).
 
@@ -215,16 +215,16 @@ make SYS=linux
 | `NVCC compiler not found` | Build on a GPU compute node with `cuda/12.5` loaded |
 | FMM table not found at runtime | Launch `paradis` from the repository root |
 | MPI task count error | Match `srun -n` to `numXdoms * numYdoms * numZdoms` in the `.ctrl` file |
-| `Repo: /var/spool` in job output | Re-submit from `examples/frank_read/` with `submit_gpu.sh` or `submit_cpu.sh` (uses `SLURM_SUBMIT_DIR`) |
+| `Repo: /var/spool` in job output | Re-submit from `examples/2_frank_read/` with `submit_gpu.sh` or `submit_cpu.sh` (uses `SLURM_SUBMIT_DIR`) |
 
 After the run, visualize results:
 
 ```bash
-cd examples/frank_read
+cd examples/2_frank_read
 python ../utils/visualize.py
 ```
 
-Outputs are written to `examples/frank_read/output/` (PNGs, MP4/MOV animation, properties plots).
+Outputs are written to `examples/2_frank_read/output/` (PNGs, MP4/MOV animation, properties plots).
 
 The same script works for other examples under `examples/`; it auto-detects the `.ctrl` basename
 and defaults to `<name>_results` and `output/` under the example directory.

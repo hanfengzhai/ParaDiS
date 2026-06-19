@@ -20,22 +20,22 @@ module load openmpi4/4.1.6
 # SLURM_SUBMIT_DIR is the directory where sbatch was run.
 if [[ -n "${SLURM_SUBMIT_DIR:-}" && -f "${SLURM_SUBMIT_DIR}/frank_read.ctrl" ]]; then
     REPO_ROOT="$(cd "${SLURM_SUBMIT_DIR}/../.." && pwd)"
-elif [[ -n "${SLURM_SUBMIT_DIR:-}" && -f "${SLURM_SUBMIT_DIR}/examples/frank_read/frank_read.ctrl" ]]; then
+elif [[ -n "${SLURM_SUBMIT_DIR:-}" && -f "${SLURM_SUBMIT_DIR}/examples/2_frank_read/frank_read.ctrl" ]]; then
     REPO_ROOT="$(cd "${SLURM_SUBMIT_DIR}" && pwd)"
 elif [[ -f "$(dirname "$0")/frank_read.ctrl" ]]; then
     REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 else
     echo "ERROR: cannot locate ParaDiS repository root" >&2
-    echo "Submit from examples/frank_read:  cd examples/frank_read && sbatch submit_cpu.sh" >&2
+    echo "Submit from examples/2_frank_read:  cd examples/2_frank_read && sbatch submit_cpu.sh" >&2
     exit 1
 fi
 cd "$REPO_ROOT"
 
 EXE="${REPO_ROOT}/bin/paradis"
-DAT="examples/frank_read/frank_read.data"
-CTL="examples/frank_read/frank_read.ctrl"
-LOG="examples/frank_read/frank_read_cpu.log"
-RESULTS="examples/frank_read/frank_read_results"
+DAT="examples/2_frank_read/frank_read.data"
+CTL="examples/2_frank_read/frank_read.ctrl"
+LOG="examples/2_frank_read/frank_read_cpu.log"
+RESULTS="examples/2_frank_read/frank_read_results"
 
 NDOMS=8
 

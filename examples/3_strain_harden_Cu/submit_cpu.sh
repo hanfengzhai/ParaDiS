@@ -18,22 +18,22 @@ module load openmpi4/4.1.6
 
 if [[ -n "${SLURM_SUBMIT_DIR:-}" && -f "${SLURM_SUBMIT_DIR}/strain_harden_Cu.ctrl" ]]; then
     REPO_ROOT="$(cd "${SLURM_SUBMIT_DIR}/../.." && pwd)"
-elif [[ -n "${SLURM_SUBMIT_DIR:-}" && -f "${SLURM_SUBMIT_DIR}/examples/strain_harden_Cu/strain_harden_Cu.ctrl" ]]; then
+elif [[ -n "${SLURM_SUBMIT_DIR:-}" && -f "${SLURM_SUBMIT_DIR}/examples/3_strain_harden_Cu/strain_harden_Cu.ctrl" ]]; then
     REPO_ROOT="$(cd "${SLURM_SUBMIT_DIR}" && pwd)"
 elif [[ -f "$(dirname "$0")/strain_harden_Cu.ctrl" ]]; then
     REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 else
     echo "ERROR: cannot locate ParaDiS repository root" >&2
-    echo "Submit from examples/strain_harden_Cu:  cd examples/strain_harden_Cu && sbatch submit_cpu.sh" >&2
+    echo "Submit from examples/3_strain_harden_Cu:  cd examples/3_strain_harden_Cu && sbatch submit_cpu.sh" >&2
     exit 1
 fi
 cd "$REPO_ROOT"
 
 EXE="${REPO_ROOT}/bin/paradis"
 DAT="tests/Copper.data"
-CTL="examples/strain_harden_Cu/strain_harden_Cu.ctrl"
-LOG="examples/strain_harden_Cu/strain_harden_Cu_cpu.log"
-RESULTS="examples/strain_harden_Cu/strain_harden_Cu_results"
+CTL="examples/3_strain_harden_Cu/strain_harden_Cu.ctrl"
+LOG="examples/3_strain_harden_Cu/strain_harden_Cu_cpu.log"
+RESULTS="examples/3_strain_harden_Cu/strain_harden_Cu_results"
 
 NDOMS=8
 
