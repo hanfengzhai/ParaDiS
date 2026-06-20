@@ -319,6 +319,12 @@ class ParadiSVisualizer:
                 data[name] = np.loadtxt(path)
         return data
 
+    def _load_property_file(self, name):
+        path = os.path.join(self.props_dir, name)
+        if os.path.isfile(path):
+            return np.loadtxt(path)
+        return None
+
     def _nice_spatial_tick(self, val):
         """Round a spatial coordinate to a clean axis tick (e.g. 1.423 -> 1.0)."""
         if abs(val) < 1e-15:
@@ -470,7 +476,20 @@ class ParadiSVisualizer:
                     bbox_inches="tight", pad_inches=0.15)
         plt.close(fig)
 
+    def _plot_stress_strain(self):
+        plastic = self._load_property_file("stress_Plastic_strain")
+        if plastic is not None:
+            self._save_line_plot(plastic[:, 0] * 100.0, plastic[:, 1] / 1e6,
+                                 "Plastic strain [%]", "Stress [MPa]",
+                                 "stress_vs_plastic_strain.png")
+        total = self._load_property_file("stress_Total_strain")
+        if total is not None:
+            self._save_line_plot(total[:, 0] * 100.0, total[:, 1] / 1e6,
+                                 "Total strain [%]", "Stress [MPa]",
+                                 "stress_vs_total_strain.png")
+
     def _plot_properties(self, props):
+        self._plot_stress_strain()
         if "time_Plastic_strain" in props:
             t_eps = props["time_Plastic_strain"]
             time_x, time_label = self._scale_time_axis(t_eps[:, 0])

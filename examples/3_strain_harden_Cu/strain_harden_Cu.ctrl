@@ -1,15 +1,17 @@
 #
-#  FCC copper bulk network under constant strain-rate loading.
+#  ParaDiS equivalent of OpenDiS example_fcc_Cu_15um_1e3:
+#  https://github.com/OpenDiS/OpenDiS/blob/main/examples/10_strain_hardening/test_strain_hardening_exadis.py
 #
-#  Dislocation density evolution under uniaxial tension along [001] demonstrates
-#  strain hardening.  Material parameters and mobility follow tests/Copper.ctrl.
+#  15 um FCC Cu, strain rate 1e3/s along [001], 1% total strain (Bertin et al., MSMSE 27, 075014, 2019).
 #
 #  Run from the ParaDiS repository root:
-#    mpirun -n 8 ./bin/paradis -d tests/Copper.data \
-#                           examples/3_strain_harden_Cu/strain_harden_Cu.ctrl
+#    mpirun -n 8 ./bin/paradis \
+#      -d examples/3_strain_harden_Cu/180chains_16.10e.data \
+#         examples/3_strain_harden_Cu/strain_harden_Cu.ctrl
 #
-#  Reference tests/Copper.ctrl uses maxstep = 200000 for full strain hardening.
-#  This example uses 20000 cycles (~1% plastic strain) for visible network evolution.
+#  ParaDiS differences from ExaDiS (documented, not matched):
+#    - trapezoid integrator instead of subcycling
+#    - Taylor FMM instead of SUBCYCLING_MODEL (Ngrid=64 ~ 4x4x4 cells)
 #
 dirname = "examples/3_strain_harden_Cu/strain_harden_Cu_results"
 
@@ -24,15 +26,18 @@ numZcells = 4
 decompType = 2
 DLBfreq = 3
 
-maxSeg = 4.000000e+02
+maxSeg = 2000.0
+minSeg = 300.0
 remeshRule = 2
 enforceGlidePlanes = 1
 enableCrossSlip = 1
 splitMultiNodeFreq = 1
 
-maxstep = 20000
+maxstep = 2000000
+timeEnd = 1.0e-5
 timestepIntegrator = "trapezoid"
-nextDT = 1.0e-12
+nextDT = 1.0e-10
+maxDT = 1.0e-9
 rTol = 10.0
 
 fmEnabled = 1
@@ -52,23 +57,23 @@ edotdir = [
 mobilityLaw = "FCC_0"
 shearModulus = 54.6e9
 pois = 0.324
-burgMag = 2.55600e-10
+burgMag = 2.55e-10
 
-MobScrew = 1.000000e+04
-MobEdge = 1.000000e+04
-rc = 5.0
+MobScrew = 64103.0
+MobEdge = 64103.0
+rann = 10.0
+rc = 10.0
+shearVelocity = 4000.0
 
 elasticinteraction = 1
 
 savetimers = 0
 savecn = 1
-savecnfreq = 1000
+savecnfreq = 100
 savecncounter = 0
 gnuplot = 1
-gnuplotfreq = 1000
+gnuplotfreq = 10
 gnuplotcounter = 0
 povray = 0
-povrayfreq = 1000
-povraycounter = 0
 saveprop = 1
-savepropfreq = 10
+savepropfreq = 100

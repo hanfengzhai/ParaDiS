@@ -8,8 +8,7 @@
 #    mpirun -n 8 ./bin/paradis -d tests/Al.data \
 #                           examples/4_strain_harden_Al/strain_harden_Al.ctrl
 #
-#  Reference tests/Al.ctrl is a short smoke test (maxstep = 40).
-#  This example uses 20000 cycles for visible network evolution (eRate = 1e4).
+#  Stop at 1% total strain: timeEnd = 0.01 / eRate = 1e-6 s (eRate = 1e4/s).
 #
 dirname = "examples/4_strain_harden_Al/strain_harden_Al_results"
 
@@ -31,9 +30,11 @@ enforceGlidePlanes = 0
 enableCrossSlip = 1
 splitMultiNodeFreq = 5
 
-maxstep = 20000
+maxstep = 2000000
+timeEnd = 1.0e-6
 timestepIntegrator = "trapezoid"
-nextDT = 1.0e-12
+nextDT = 1.0e-10
+maxDT = 1.0e-9
 rTol = 3.0
 
 fmEnabled = 1
@@ -76,13 +77,13 @@ elasticinteraction = 1
 
 savetimers = 0
 savecn = 1
-savecnfreq = 1000
+savecnfreq = 100
 savecncounter = 0
 gnuplot = 1
-gnuplotfreq = 1000
+gnuplotfreq = 100
 gnuplotcounter = 0
 povray = 0
-povrayfreq = 1000
+povrayfreq = 100
 povraycounter = 0
 saveprop = 1
-savepropfreq = 10
+savepropfreq = 100

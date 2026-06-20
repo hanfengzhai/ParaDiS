@@ -7,7 +7,7 @@
 #SBATCH --ntasks=8
 #SBATCH --cpus-per-task=1
 #SBATCH --gres=gpu:1
-#SBATCH -t 10:00:00
+#SBATCH -t 48:00:00
 
 set -euo pipefail
 
@@ -32,7 +32,7 @@ fi
 cd "$REPO_ROOT"
 
 EXE="${REPO_ROOT}/bin/paradis"
-DAT="tests/Copper.data"
+DAT="examples/3_strain_harden_Cu/180chains_16.10e.data"
 CTL="examples/3_strain_harden_Cu/strain_harden_Cu.ctrl"
 LOG="examples/3_strain_harden_Cu/strain_harden_Cu.log"
 RESULTS="examples/3_strain_harden_Cu/strain_harden_Cu_results"
