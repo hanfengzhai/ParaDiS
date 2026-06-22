@@ -29,10 +29,10 @@ maxDT = 1.000000e-05
 enforceGlidePlanes = 1
 enableCrossSlip = 0
 
-rc = 5.000000
-MobScrew = 1.000000e+01
-MobEdge = 1.000000e+01
-MobClimb = 1.000000e-08
+rc = 2.000000
+MobScrew = 1.000000e+00
+MobEdge = 1.000000e+02
+MobClimb = 1.000000e-03
 mobilityLaw = "BCC_glide"
 
 elasticinteraction = 1

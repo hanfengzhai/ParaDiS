@@ -109,9 +109,7 @@ int Mobility_BCC_glide(Home_t *home, Node_t *node, MobArgs_t *mobArgs)
 
         Bscrew     = 1.0 / param->MobScrew;
         Bedge      = 1.0 / param->MobEdge;
-
-        /* Beclimb    = 1.0 / param->MobClimb; */ 
-        Beclimb    = 1.0e10; 
+        Beclimb    = 1.0 / param->MobClimb;
         
 
         Bscrew2    = Bscrew * Bscrew;
@@ -204,17 +202,68 @@ int Mobility_BCC_glide(Home_t *home, Node_t *node, MobArgs_t *mobArgs)
 	  }
 	  
 	  if (fabs(burgCryst[X]*burgCryst[Y]*burgCryst[Z]) < eps) {
-	    if (nbrs == 2) {
-	      Btotal[0][0] += halfMag * Beclimb;
-	      Btotal[1][1] += halfMag * Beclimb;
-	      Btotal[2][2] += halfMag * Beclimb;
-	    } else {
-	      Btotal[0][0] += halfMag * (dx*dx * BlmBecl + Beclimb);
-	      Btotal[0][1] += halfMag * (dx*dy * BlmBecl);
-	      Btotal[0][2] += halfMag * (dx*dz * BlmBecl);
-	      Btotal[1][1] += halfMag * (dy*dy * BlmBecl + Beclimb);
-	      Btotal[1][2] += halfMag * (dy*dz * BlmBecl);
-	      Btotal[2][2] += halfMag * (dz*dz * BlmBecl + Beclimb);
+/*
+ *            Arms with a zero crystal Burgers component (including planar
+ *            loops whose b lies in a coordinate plane).  Use the line-
+ *            direction tensor form rather than isotropic climb drag so
+ *            segments can still glide on their assigned planes.
+ */
+	    Btotal[0][0] += halfMag * (dx*dx * BlmBecl + Beclimb);
+	    Btotal[0][1] += halfMag * (dx*dy * BlmBecl);
+	    Btotal[0][2] += halfMag * (dx*dz * BlmBecl);
+	    Btotal[1][1] += halfMag * (dy*dy * BlmBecl + Beclimb);
+	    Btotal[1][2] += halfMag * (dy*dz * BlmBecl);
+	    Btotal[2][2] += halfMag * (dz*dz * BlmBecl + Beclimb);
+
+	    if ((1.0 - costheta2) > eps) {
+
+	      nx = node->nx[i];
+	      ny = node->ny[i];
+	      nz = node->nz[i];
+
+	      xvector(nx, ny, nz, dx, dy, dz, &mx, &my, &mz);
+
+	      Bglide = sqrt(invBedge2 + (invBscrew2-invBedge2) *
+			    costheta2);
+	      Bglide = 1.0 / Bglide;
+	      Bclimb = sqrt(Beclimb2 + (Bscrew2 - Beclimb2) *
+			    costheta2);
+
+#ifdef NAN_CHECK
+	      if (isnan(Bglide) != 0) {
+		Fatal("Mobility_BCC_glide: Bglide = NaN\n"
+		      "  Bglide = sqrt(invBedge2 + "
+		      "(invBscrew2-invBedge2)*costheta2)\n"
+		      "  where invBedge2 = %lf, invBscrew2 = %lf, "
+		      "costheta2 = %lf", invBedge2, invBscrew2,
+		      costheta2);
+	      }
+
+	      if (isnan(Bclimb) != 0) {
+		Fatal("Mobility_BCC_glide: Bclimb = NaN\n"
+		      "  Bclimb = sqrt(Beclimb2 + "
+		      "(Bscrew2-Beclimb2)*costheta2)\n"
+		      "  where Beclimb2 = %lf, Bscrew2 = %lf, "
+		      "costheta2 = %lf", Beclimb2, Bscrew2,
+		      costheta2);
+	      }
+#endif
+	      BclmBsc = Bclimb - Bscrew;
+	      BglmBsc = Bglide - Bscrew;
+
+
+	      Btotal[0][0] += halfMag * (nx*nx * BclmBsc +
+					 mx*mx * BglmBsc);
+	      Btotal[0][1] += halfMag * (nx*ny * BclmBsc +
+					 mx*my * BglmBsc);
+	      Btotal[0][2] += halfMag * (nx*nz * BclmBsc +
+					 mx*mz * BglmBsc);
+	      Btotal[1][1] += halfMag * (ny*ny * BclmBsc +
+					 my*my * BglmBsc);
+	      Btotal[1][2] += halfMag * (ny*nz * BclmBsc +
+					 my*mz * BglmBsc);
+	      Btotal[2][2] += halfMag * (nz*nz * BclmBsc +
+					 mz*mz * BglmBsc);
 	    }
 	  } else  {
 /*

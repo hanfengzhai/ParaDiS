@@ -46,15 +46,21 @@ MOBILITY_CONFIGS = {
         "MobClimb": "1.000000e-02",
         "rc": "2.000000",
         "enableCrossSlip": 0,
+        "enforceGlidePlanes": 1,
     },
     "BCC_glide": {
         "label": "BCC_glide",
         "mobilityLaw": "BCC_glide",
-        "MobScrew": "1.000000e+01",
-        "MobEdge": "1.000000e+01",
-        "MobClimb": "1.000000e-08",
-        "rc": "5.000000",
+        "MobScrew": "1.000000e+00",
+        "MobEdge": "1.000000e+02",
+        "MobClimb": "1.000000e-03",
+        "MobClimbByPlane": {
+            "001": "1.000000e-03",
+            "111": "3.000000e-03",
+        },
+        "rc": "2.000000",
         "enableCrossSlip": 0,
+        "enforceGlidePlanes": 1,
     },
     "FCC": {
         "label": "FCC_linear",
@@ -64,6 +70,7 @@ MOBILITY_CONFIGS = {
         "MobClimb": "1.000000e+00",
         "rc": "5.000000",
         "enableCrossSlip": 0,
+        "enforceGlidePlanes": 1,
     },
 }
 
@@ -430,9 +437,11 @@ def write_ctrl(case_name: str):
     case_rel = "examples/1_glissile_loops/{}".format(case_name)
     plane_label = PLANE_CONFIGS[plane]["label"]
 
-    lines = [
+    header = [
         "#",
         "#  Glissile loop on {} with {} mobility.".format(plane_label, mob["label"]),
+    ]
+    lines = header + [
         "#",
         "#  Run from the ParaDiS repository root:",
         "#    python examples/1_glissile_loops/make_loop_data.py --case {}".format(case_name),
@@ -459,31 +468,47 @@ def write_ctrl(case_name: str):
         'timestepIntegrator = "trapezoid"',
         "maxDT = 1.000000e-05",
         "",
-        "enforceGlidePlanes = 1",
+        "enforceGlidePlanes = {}".format(mob.get("enforceGlidePlanes", 1)),
         "enableCrossSlip = {}".format(mob["enableCrossSlip"]),
         "",
         "rc = {}".format(mob["rc"]),
         "MobScrew = {}".format(mob["MobScrew"]),
         "MobEdge = {}".format(mob["MobEdge"]),
-        "MobClimb = {}".format(mob["MobClimb"]),
+        "MobClimb = {}".format(
+            mob.get("MobClimbByPlane", {}).get(plane, mob["MobClimb"])
+        ),
         'mobilityLaw = "{}"'.format(mob["mobilityLaw"]),
         "",
         "elasticinteraction = 1",
         "",
-        "loadType = 0",
-        "edotdir = [",
-        "  0.0",
-        "  0.0",
-        "  1.0",
-        "  ]",
-        "#  Voigt (xx, yy, zz, yz, zx, xy): rotated from shearloopBCC_LinCS.ctrl.",
-        "appliedStress = [",
     ]
-    for val in stress:
-        lines.append("  {:.6e}".format(val))
+    if mob.get("loadType", 0) == 1:
+        lines.extend([
+            "loadType = 1",
+            "eRate = {}".format(mob["eRate"]),
+            "edotdir = [",
+            "  0.0",
+            "  0.0",
+            "  1.0",
+            "  ]",
+            "",
+        ])
+    else:
+        lines.extend([
+            "loadType = 0",
+            "edotdir = [",
+            "  0.0",
+            "  0.0",
+            "  1.0",
+            "  ]",
+            "#  Voigt (xx, yy, zz, yz, zx, xy): rotated from shearloopBCC_LinCS.ctrl.",
+            "appliedStress = [",
+        ])
+        for val in stress:
+            lines.append("  {:.6e}".format(val))
+        lines.append("  ]")
+        lines.append("")
     lines.extend([
-        "  ]",
-        "",
         "savetimers = 0",
         "savecn = 1",
         "savecnfreq = 200",
