@@ -2,7 +2,7 @@
 #SBATCH -J paradis-gloop-111-bcc
 #SBATCH -o bash_logs/glissile_loop.%j.out
 #SBATCH -e bash_logs/glissile_loop.%j.err
-#SBATCH -p gpu-ampere
+#SBATCH -p gpu-L40S
 #SBATCH -N 1
 #SBATCH --ntasks=8
 #SBATCH --cpus-per-task=1
@@ -46,7 +46,7 @@ NDOMS=8
 export CUDA_PATH=/usr/local/cuda-12.5
 export CUDA_LIBS=/usr/local/cuda-12.5/lib64
 export NVCC="${CUDA_PATH}/bin/nvcc"
-export NVCC_FLAGS="-O3 -g -rdc=true -Wno-deprecated-gpu-targets -gencode arch=compute_80,code=sm_80"
+export NVCC_FLAGS="-O3 -g -rdc=true -Wno-deprecated-gpu-targets -gencode arch=compute_89,code=sm_89"
 
 echo "Job started: $(date)"
 echo "Host: $(hostname)"
