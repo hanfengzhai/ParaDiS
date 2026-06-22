@@ -134,25 +134,31 @@ srun -N 1 -n 8 -p cpu \
 ## Step 8 — Run the Frank-Read GPU example (optional)
 
 The example under `examples/2_frank_read/` uses elastic FMM forces and
-`BCC_glide` mobility. Submit from the example directory:
+`BCC_glide` mobility on (001) and (111) glide planes. Generate case files
+from the repo root, then submit from a case directory:
 
 ```bash
-cd /path/to/ParaDiS.llnl.git/examples/2_frank_read
-sbatch submit_gpu.sh    # GPU (gpu-ampere)
+cd /path/to/ParaDiS.llnl.git
+python examples/2_frank_read/make_frank_read_data.py
+
+cd examples/2_frank_read/111_BCC
+sbatch submit_gpu.sh    # GPU (gpu-L40S)
 # sbatch submit_cpu.sh  # CPU partition
 ```
+
+Cases: `001_BCC`, `111_BCC` (same layout as `examples/1_glissile_loops/`).
 
 Monitor:
 
 ```bash
 squeue -u $USER
-tail -f frank_read.<jobid>.out
+tail -f bash_logs/frank_read.<jobid>.out
 ```
 
 The submit script builds with `GPU_ENABLED=ON` on the GPU node if `bin/paradis`
-is missing. **Submit from `examples/2_frank_read/`** so Slurm sets
-`SLURM_SUBMIT_DIR` correctly (Slurm copies the script to `/var/spool/`; using
-`$0` to find the repo will fail).
+is missing. **Submit from a case directory** (e.g. `examples/2_frank_read/111_BCC/`)
+so Slurm sets `SLURM_SUBMIT_DIR` correctly (Slurm copies the script to
+`/var/spool/`; using `$0` to find the repo will fail).
 
 ---
 
@@ -215,16 +221,15 @@ make SYS=linux
 | `NVCC compiler not found` | Build on a GPU compute node with `cuda/12.5` loaded |
 | FMM table not found at runtime | Launch `paradis` from the repository root |
 | MPI task count error | Match `srun -n` to `numXdoms * numYdoms * numZdoms` in the `.ctrl` file |
-| `Repo: /var/spool` in job output | Re-submit from `examples/2_frank_read/` with `submit_gpu.sh` or `submit_cpu.sh` (uses `SLURM_SUBMIT_DIR`) |
+| `Repo: /var/spool` in job output | Re-submit from a case dir (e.g. `examples/2_frank_read/111_BCC/`) with `submit_gpu.sh` or `submit_cpu.sh` (uses `SLURM_SUBMIT_DIR`) |
 
 After the run, visualize results:
 
 ```bash
-cd examples/2_frank_read
-python ../utils/visualize.py
+python examples/utils/visualize.py --example-dir examples/2_frank_read/111_BCC
 ```
 
-Outputs are written to `examples/2_frank_read/output/` (PNGs, MP4/MOV animation, properties plots).
+Outputs are written to `examples/2_frank_read/<case>/output/` (PNGs, MP4/MOV animation, properties plots).
 
 The same script works for other examples under `examples/`; it auto-detects the `.ctrl` basename
 and defaults to `<name>_results` and `output/` under the example directory.

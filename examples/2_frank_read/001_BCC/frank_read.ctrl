@@ -1,0 +1,70 @@
+#
+#  Frank-Read source on (001) (BCC, BCC_glide mobility).
+#
+#  Uses full elastic segment-segment interactions (FMM).
+#
+#  Run from the ParaDiS repository root:
+#    python examples/2_frank_read/make_frank_read_data.py --case 001_BCC
+#    mpirun -n 8 ./bin/paradis -d examples/2_frank_read/001_BCC/frank_read.data \
+#                           examples/2_frank_read/001_BCC/frank_read.ctrl
+#
+dirname = "examples/2_frank_read/001_BCC/frank_read_results"
+
+numXdoms = 2
+numYdoms = 2
+numZdoms = 2
+
+numXcells = 4
+numYcells = 4
+numZcells = 4
+
+fmEnabled       = 1
+fmMPOrder       = 2
+fmTaylorOrder   = 5
+fmCorrectionTbl = "inputs/fm-ctab.Ta.600K.0GPa.m2.t5.dat"
+
+maxstep = 500
+remeshRule = 2
+minSeg = 2.000000e+02
+maxSeg = 2.000000e+03
+rTol = 1.000000e+00
+timestepIntegrator = "trapezoid"
+
+enforceGlidePlanes = 1
+enableCrossSlip = 0
+
+rc = 5.0
+MobScrew = 1.000000e+01
+MobEdge = 1.000000e+01
+MobClimb = 1.000000e-08
+mobilityLaw = "BCC_glide"
+
+elasticinteraction = 1
+
+loadType = 0
+edotdir = [
+  0.0
+  0.0
+  1.0
+  ]
+appliedStress = [
+  0.000000e+00
+  0.000000e+00
+  5.000000e+08
+  0.000000e+00
+  0.000000e+00
+  0.000000e+00
+  ]
+
+savetimers = 0
+savecn = 1
+savecnfreq = 100
+savecncounter = 0
+gnuplot = 1
+gnuplotfreq = 100
+gnuplotcounter = 0
+povray = 1
+povrayfreq = 100
+povraycounter = 0
+saveprop = 1
+savepropfreq = 10

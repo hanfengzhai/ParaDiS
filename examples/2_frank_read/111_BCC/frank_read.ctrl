@@ -1,14 +1,14 @@
 #
-#  Frank-Read source on a BCC crystal.
+#  Frank-Read source on (111) (BCC, BCC_glide mobility).
 #
-#  Uses full elastic segment-segment interactions (FMM) rather than the
-#  line-tension calforce approximation (elasticinteraction = 1).
-#  Mobility is restricted to glide planes via BCC_glide.
+#  Uses full elastic segment-segment interactions (FMM).
 #
 #  Run from the ParaDiS repository root:
-#    ./bin/paradis -d examples/2_frank_read/frank_read.data examples/2_frank_read/frank_read.ctrl
+#    python examples/2_frank_read/make_frank_read_data.py --case 111_BCC
+#    mpirun -n 8 ./bin/paradis -d examples/2_frank_read/111_BCC/frank_read.data \
+#                           examples/2_frank_read/111_BCC/frank_read.ctrl
 #
-dirname = "examples/2_frank_read/frank_read_results"
+dirname = "examples/2_frank_read/111_BCC/frank_read_results"
 
 numXdoms = 2
 numYdoms = 2

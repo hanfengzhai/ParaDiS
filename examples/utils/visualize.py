@@ -9,7 +9,7 @@ Usage (from an example directory):
     python ../utils/visualize.py --results frank_read_results --fps 2
 
 Usage (from repository root):
-    python examples/utils/visualize.py --example-dir examples/2_frank_read
+    python examples/utils/visualize.py --example-dir examples/2_frank_read/111_BCC
 """
 
 from __future__ import annotations
